@@ -1,0 +1,70 @@
+\documentclass[a4paper, czech]{article}
+
+\title{Úloha č.1: Stanovení nejistot při přímém měření výkonu}
+\author{Karolína Andrea Šebestová \and Filip Kokavec}
+\date{Datum měření: 2.10.2024}
+
+\usepackage[czech]{babel}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\begin{document}
+
+\maketitle
+
+\section{Zadání}
+
+\begin{itemize}
+    \item Seznamte se s měřením stejnosměrného proudu a napětí pomocí ČMP a s určením nejistoty nepřímého měření výkonu.
+    \item Změřte výkon stejnosměrného proudu nepřímou metodou.
+    \item Naměřené hodnoty zpracujte z hlediska odchylky metody a nejistot měření.
+\end{itemize}
+
+\section{Teoretický úvod}
+
+Výkon stejnosměrného obvodu lze jednoduše měřit nepřímou metodou, kdy nejprve měříme elektrické napětí voltmetrem a elektrický proud ampérmetrem.
+Následně je možné z naměřených hodnot napětí a proudu vypočíst výkon stejnosměrného proudu následujícím jednoduchým součinovým vztahem:
+
+$$P_Z = U_Z \cdot I_Z$$
+
+Pokud chceme měřit napětí i proud v obvodu současně, tak můžeme využít dvou možných zapojení.
+Bohužel ani v jednom případě není možné měřit skutečné hodnoty proudu a napětí v obvodu.
+V obou případech je výkon vypočtený z naměřených hodnot měřících přístrojů ovlivněn odchylkou použité metody.
+
+Známe dvě různé obvodové uspořádání pro měření výkonu stejnosměrného obvodu:
+
+\begin{enumerate}
+    \item \textbf{VA uspořádání}
+
+    Voltmetr v zapojení předchází ampérmetr, t.j. je zapojen paralelně k zátěži s ampérmetrem, který je se zátěží v sérii.
+
+    Voltmetr měří součet úbytků napětí vznikajících na zátěži i ampérmetru.
+    Ampérmetr měří pouize proud protékající zátěží obvodu.
+
+    U tohoto uspořádání dochází k systematické odchylce, která je způsobena parazitními ztrátami na vnitřním odporu ampérmetru.
+
+    \item \textbf{AV uspořádání}
+
+    Ampérmetr předchází voltmetr, t.j. je zapojen sériově se zátěží s voltmetrem, který je k zátěži připojen paralelně.
+
+    Ampérmetr měří součet proudů protékajících voltmetrem i zátěží obvodu.
+    Voltmetr měří pouze úbytek napětí vznikající na zátěži obvodu.
+
+    U tohoto uspořádání dochází k systematické odchylce, která je způsobena parazitními ztrátami na vnitřním odporu voltmetru.
+\end{enumerate}
+
+Systematické chyby metody způsobené měřením je potřeba zohlednit a řádně je kompenzovat.
+Zároveň je také potřeba určit nejistotu měření.
+Nejistotu měření určíme pomocí zákona o šíření nejistot, kdy při zanedbání nejistoty vnitřního odporu prvního přístroje v obvodu je standardní nejistota výsledku měření kombinací celkové nejistoty výsledku nepřímého měření výkonu. 
+
+\subsection{Příklady výpočtu}
+
+\section{Seznam použitých přístrojů}
+
+\section{Závěr}
+
+\end{document}
