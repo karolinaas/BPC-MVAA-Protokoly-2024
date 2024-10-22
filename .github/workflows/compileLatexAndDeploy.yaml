@@ -34,7 +34,8 @@ jobs:
           root_file: |
             Uloha1/Uloha1.tex
             Uloha2/Uloha2.tex
-            Uloha3/Uloha3.tex
+            Uloha3/Uloha3A.tex
+            Uloha3/Uloha3B.tex
             Uloha4/Uloha4.tex
             Uloha5/Uloha5.tex
             Uloha6/Uloha6.tex
@@ -51,7 +52,8 @@ jobs:
           mkdir public
           mv Uloha1/Uloha1.pdf ./public/
           mv Uloha2/Uloha2.pdf ./public/
-          mv Uloha3/Uloha3.pdf ./public/
+          mv Uloha3/Uloha3A.pdf ./public/
+          mv Uloha3/Uloha3B.pdf ./public/
           mv Uloha4/Uloha4.pdf ./public/
           mv Uloha5/Uloha5.pdf ./public/
           mv Uloha6/Uloha6.pdf ./public/
@@ -68,7 +70,8 @@ jobs:
             <body>
               <p><a href="./Uloha1.pdf">Úloha č.1: Stanovení nejistot při nepřímém měření výkonu</a></p>
               <p><a href="./Uloha2.pdf">Úloha č.2: </a></p>
-              <p><a href="./Uloha3.pdf">Úloha č.3: </a></p>
+              <p><a href="./Uloha3.pdf">Úloha č.3A: Měření odporů malých hodnot</a></p>
+              <p><a href="./Uloha3.pdf">Úloha č.3B: Automatizované měření impedance reproduktoru</a></p>
               <p><a href="./Uloha4.pdf">Úloha č.4: </a></p>
               <p><a href="./Uloha5.pdf">Úloha č.5: </a></p>
               <p><a href="./Uloha6.pdf">Úloha č.6: </a></p>
