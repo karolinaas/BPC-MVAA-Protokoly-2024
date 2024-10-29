@@ -51,6 +51,118 @@
 
 \section{Výsledky měření}
 
+\subsection{Tabulky}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Měření kmitočtových závislostí přístrojů}
+    \begin{tabular}{ccccccccc}
+        \toprule
+        $f$      & $U_1$    & $A_1$    & $U_2$   & $A_2$    & $U_3$  & $A_3$    & $U_4$   & $A_4$    \\
+        \cmidrule(rl){1-1}
+        \cmidrule(rl){2-3}
+        \cmidrule(rl){4-5}
+        \cmidrule(rl){6-7}
+        \cmidrule(rl){8-9}
+        Hz     & V     & -     & V    & -     & V   & -     & V    & -     \\
+        \midrule
+        10     & 5,003 & 0,996 & 5,05 & 1,010 & 4,8 & 1,000 & 4,90 & 1,021 \\
+        20     & 5,012 & 0,998 & 5,01 & 1,002 & 4,8 & 1,000 & 4,85 & 1,010 \\
+        50     & 5,021 & 1,000 & 5,00 & 1,000 & 4,8 & 1,000 & 4,80 & 1,000 \\
+        100    & 5,028 & 1,001 & 5,00 & 1,000 & 4,8 & 1,000 & 4,80 & 1,000 \\
+        200    & 5,031 & 1,002 & 5,00 & 1,000 & 4,8 & 1,000 & 4,80 & 1,000 \\
+        500    & 5,032 & 1,002 & 4,99 & 0,998 & 4,8 & 1,000 & 4,80 & 1,000 \\
+        1000   & 5,030 & 1,002 & 4,98 & 0,996 & 4,8 & 1,000 & 4,80 & 1,000 \\
+        2000   & 5,022 & 1,000 & 4,92 & 0,984 & 4,6 & 0,958 & 4,80 & 1,000 \\
+        5000   & 4,996 & 0,995 & 4,61 & 0,922 & 4,4 & 0,917 & 4,80 & 1,000 \\
+        10000  & 4,976 & 0,991 & 3,82 & 0,764 & 4,2 & 0,875 & 4,80 & 1,000 \\
+        20000  & 4,976 & 0,991 & 2,42 & 0,484 & 4,0 & 0,833 & 4,80 & 1,000 \\
+        50000  & 5,105 & 1,017 & 0,64 & 0,128 & 2,4 & 0,500 & 4,60 & 0,958 \\
+        100000 & 5,688 & 1,133 & 0,15 & 0,030 & 0,6 & 0,125 & 4,00 & 0,833 \\
+        \bottomrule
+        \multicolumn{3}{l}{$U = 5V$}
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Měření napětí trojúhelníkového a obdélníkového průběhu}
+    \begin{tabular}{cccccccccccc}
+        \toprule
+        \multirow{2}{*}{Průběh} & $k_t$    & $U_1$    & $\delta_1$    & $U_2$    & $\delta_2$     & $U_{2k}$   & $\delta_{2k}$    & $U_3$    & $\delta_3$     & $U_{3k}$   & $\delta_{3k}$    \\
+        \cmidrule(rl){2-2}
+        \cmidrule(rl){3-4}
+        \cmidrule(rl){5-8}
+        \cmidrule(rl){9-12}
+                                & -     & V     & \%    & V     & \%     & V     & \%     & V     & \%     & V     & \%     \\
+        \midrule
+        Trojúhelník             & 1,155 & 5,022 & 0,440 & 4,810 & -3,800 & 5,000 & 0,010  & 4,600 & -8,000 & 4,782 & -4,356 \\
+        Obdélník                & 1,000 & 5,029 & 0,580 & 5,540 & 10,80  & 4,986 & -0,270 & 5,200 & 4,000  & 4,680 & -6,391 \\
+        \bottomrule
+        &\multicolumn{2}{l}{$U = 5V$} & \multicolumn{2}{l}{$f = 50 Hz$}
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Měření s nenulovou stejnosměrnou složkou}
+    \begin{tabular}{ccccccccccc}
+        \toprule
+        \multirow{2}{*}{Průběh} & $U_1$    & $\delta_1$    & $U_2$    & $\delta_2$     & $U_{2k}$   & $\delta_{2k}$    & $U_3$    & $\delta_3$     & $U_{3k}$   & $\delta_{3k}$    \\
+        \cmidrule(rl){2-3}
+        \cmidrule(rl){4-7}
+        \cmidrule(rl){8-11}
+                                & V     & \%     & V    & \%     & V     & \%     & V   & \%     & V     & \%     \\
+        \midrule
+        Harmonický              & 4,036 & -19,60 & 4,04 & -19,62 & 4,035 & -19,62 & 4,2 & -16,33 & 4,587 & -8,623 \\
+        Trojúhelníkový          & 4,012 & -20,08 & 3,86 & -23,11 & 3,874 & -22,83 & 4,0 & -20,32 & 4,376 & -12,82 \\
+        Obdélníkový             & 4,056 & -19,20 & 4,47 & -10,96 & 4,023 & -19,85 & 4,2 & -16,33 & 4,725 & -5,867 \\
+        \bottomrule
+        &\multicolumn{2}{l}{$U_{\sim} = 4V$} & \multicolumn{2}{l}{$U_s = 3V$} & \multicolumn{2}{l}{$f = 50 Hz$} & \multicolumn{2}{l}{$U_R = 5,02V$}
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Závislost efektivní hodnoty napětí na střídě obdélníkového signálu}
+    \begin{tabular}{cccccc}
+        \toprule
+        střída & $U_R$    & $U_1$    & $\delta_1$     & $U_{OSC}$ & $\delta_{OSC}$  \\
+        \cmidrule(rl){1-1}
+        \cmidrule(rl){2-2}
+        \cmidrule(rl){3-4}
+        \cmidrule(rl){5-6}
+        \%     & V     & V     & \%     & V    & \%    \\
+        \midrule
+        1      & 5,049 & 0,972 & -80,75 & 5,16 & 2,198 \\
+        2      & 5,046 & 1,383 & -72,59 & 5,16 & 2,259 \\
+        3      & 5,044 & 1,694 & -66,42 & 5,16 & 2,300 \\
+        4      & 5,043 & 1,953 & -61,27 & 5,15 & 2,122 \\
+        5      & 5,041 & 2,176 & -56,83 & 5,15 & 2,162 \\
+        6      & 5,039 & 2,376 & -52,85 & 5,15 & 2,203 \\
+        7      & 5,038 & 2,555 & -49,29 & 5,15 & 2,223 \\
+        8      & 5,037 & 2,719 & -46,02 & 5,15 & 2,243 \\
+        9      & 5,035 & 2,871 & -42,98 & 5,15 & 2,284 \\
+        10     & 5,033 & 3,011 & -40,17 & 5,14 & 2,126 \\
+        15     & 5,028 & 3,59  & -28,60 & 5,13 & 2,029 \\
+        20     & 5,023 & 4,025 & -19,87 & 5,12 & 1,931 \\
+        25     & 5,019 & 4,359 & -13,15 & 5,11 & 1,813 \\
+        30     & 5,015 & 4,614 & -7,996 & 5,09 & 1,496 \\
+        35     & 5,012 & 4,802 & -4,190 & 5,08 & 1,357 \\
+        40     & 5,009 & 4,931 & -1,557 & 5,07 & 1,218 \\
+        45     & 5,005 & 5,006 & 0,020  & 5,05 & 0,899 \\
+        50     & 5,001 & 5,028 & 0,540  & 5,04 & 0,780 \\
+        \bottomrule
+        \multicolumn{2}{l}{$U_{R_{50\%}} = 5V$}
+    \end{tabular}
+\end{table}
+
+\subsection{Grafy}
+
 \subsection{Příklady výpočtu}
 
 \section{Seznam použitých přístrojů}

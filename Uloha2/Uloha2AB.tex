@@ -51,6 +51,131 @@
 
 \section{Výsledky měření}
 
+\subsection{Tabulky}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Naměřené a vypočtené hodnoty pro Ohmovu metodu VA}
+    \begin{tabular}{lcccccccccccc}
+        \toprule
+        \multirow{2}{*}{} & \multicolumn{3}{c}{$I_A$} & \multicolumn{3}{c}{$U_V$} & $R'_{X_{VA}}$ & $R_A$ & $\Delta_{R_{X_{VA}}}$ & $\delta_{R_{X_{VA}}}$ & $R_{X_{VA}}$ & $\tilde{U}_{R_{X_{VA}}}$ \\
+        \cmidrule(rl){2-4}
+        \cmidrule(rl){5-7}
+        \cmidrule(rl){8-8}
+        \cmidrule(rl){9-9}
+        \cmidrule(rl){10-10}
+        \cmidrule(rl){11-11}
+        \cmidrule(rl){12-12}
+        \cmidrule(rl){13-13}
+        & $\alpha_A$   & $k_A$       & mA     & $\alpha_V$    & $k_V$       & V     & $\Omega$         & $\Omega$    & $\Omega$               & \%              & $\Omega$        & \%          \\
+        \midrule
+        $R_1$                & 109  & 120/120  & 109    & 75    & 2,4/120  & 1,5   & 13,7615   & 4,1  & 4,1             & 42,44           & 9,6615   & 1,597       \\
+        $R_2$                & 111  & 6/120    & 5,55   & 75    & 2,4/120  & 1,5   & 270,27    & 72   & 72              & 36,31           & 198,27   & 1,520       \\
+        $R_3$                & 111  & 120/120  & 111    & 76    & 12/120   & 7,6   & 68,468    & 4,1  & 4,1             & 6,370           & 64,368   & 1,175       \\
+        $R_4$                & 108  & 2,4/120  & 2,16   & 102   & 12/120   & 10,2  & 4722,2    & 156  & 156             & 3,416           & 4566,2   & 0,966       \\
+        $R_5$                & 77   & 0,6/120  & 0,385  & 115   & 12/120   & 11,5  & 29870     & 250  & 250             & 0,844           & 29620    & 1,092      \\
+        \bottomrule
+        \multicolumn{3}{l}{$\delta_{TP_V} = 0,5\%$} & \multicolumn{3}{l}{$\delta_{TP_A} = 0,5\%$} 
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Naměřené a vypočtené hodnoty pro Ohmovu metodu AV}
+    \begin{tabular}{lcccccccccccc}
+        \toprule
+        \multirow{2}{*}{} & \multicolumn{3}{c}{$I_A$} & \multicolumn{3}{c}{$U_V$} & $R'_{X_{AV}}$ & $R_A$ & $\Delta_{R_{X_{AV}}}$ & $\delta_{R_{X_{AV}}}$ & $R_{X_{AV}}$ & $\tilde{U}_{R_{X_{AV}}}$ \\
+        \cmidrule(rl){2-4}
+        \cmidrule(rl){5-7}
+        \cmidrule(rl){8-8}
+        \cmidrule(rl){9-9}
+        \cmidrule(rl){10-10}
+        \cmidrule(rl){11-11}
+        \cmidrule(rl){12-12}
+        \cmidrule(rl){13-13}
+        & $\alpha_A$   & $k_A$       & mA     & $\alpha_V$    & $k_V$       & V     & $\Omega$         & $\Omega$    & $\Omega$               & \%              & $\Omega$        & \%          \\
+        \midrule
+        $R_1$                & 108   & 120/120  & 108   & 108   & 1,2/120  & 1,08  & 10,000    & 1200  & -0,0840         & -0,833          & 10,084   & 0,915       \\
+        $R_2$                & 103   & 120/120  & 103   & 111   & 24/120   & 22,2  & 215,53    & 24000 & -1,9532         & -0,898          & 217,49   & 0,926       \\
+        $R_3$                & 115   & 120/120  & 115   & 73    & 12/120   & 7,3   & 63,478    & 12000 & -0,3376         & -0,529          & 63,816   & 1,130       \\
+        $R_4$                & 109   & 6/120    & 5,45  & 105   & 24/120   & 21    & 3853,2    & 24000 & -736,95         & -16,06          & 4590,2   & 1,091       \\
+        $R_5$                & 69    & 2,4/120  & 1,38  & 117   & 12/120   & 11,7  & 8478,3    & 12000 & -20411          & -70,65          & 28889    & 3,972      \\
+        \bottomrule
+        \multicolumn{3}{l}{$R_V = 1000 \Omega \slash V$} & \multicolumn{3}{l}{$\delta_{TP_V} = 0,5\%$} & \multicolumn{3}{l}{$\delta_{TP_A} = 0,5\%$} 
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Naměřené a vypočtené hodnoty pro měření převodníkem}
+    \begin{tabular}{lcccccc}
+        \toprule
+        \multirow{2}{*}{} & $R_{ref}$ & \multicolumn{2}{c}{$U_V$} & $R_X$   & $\tilde{U}_{R_X}$ \\
+        \cmidrule(rl){2-2} 
+        \cmidrule(rl){3-4}
+        \cmidrule(rl){5-5}
+        \cmidrule(rl){6-6}
+        & $\Omega$      & $X_R$         & V           & $\Omega$      & \%      \\ 
+        \midrule
+        $R_1$                & 500    & 0,1        & -0,10       & 10,09  & 0,141   \\ 
+        $R_2$                & 500    & 10         & -2,19       & 219,03 & 0,136   \\ 
+        $R_3$                & 500    & 0,1        & -0,10       & 9,919  & 0,141   \\ 
+        $R_4$                & 5000   & 10         & -4,67       & 4667   & 0,132   \\ 
+        $R_5$                & 50000  & 10         & -3,03       & 30312  & 0,134   \\ 
+        \bottomrule
+        \multicolumn{3}{l}{$U_{ref} = 5V$} & \multicolumn{3}{l}{$R_{ref} = 500 \Omega \text{ až } 5 M \Omega $}
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Naměřené hodnoty pro substituční metodu}
+    \begin{tabular}{lccc}
+        \toprule
+        \multirow{2}{*}{} & $I$   & $R_X = R_D$ & $\tilde{U}_{R_X}$                \\
+        \cmidrule(rl){2-2}
+        \cmidrule(rl){3-3}
+        \cmidrule(rl){4-4}
+                                     & mA  & $\Omega$           & \%                     \\
+        \midrule
+        $R_1$                           & 106 & 9,1         & \multirow{5}{*}{0,115} \\
+        $R_2$                           & 103 & 218         &                        \\
+        $R_3$                           & 101 & 57,2        &                        \\
+        $R_4$                           & 5,0   & 4680        &                        \\
+        $R_5$                           & 0,5 & 30400       &                       \\
+        \bottomrule
+        \multicolumn{3}{l}{$\delta_{R_D} = 0,1\%$}
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Srovnání výsledků jednotlivých metod}
+    \begin{tabular}{lcccccccccc}
+        \toprule
+        \multirow{2}{*}{}    & $R_1$     & $\tilde{U}_{R_1}$ & $R_2$      & $\tilde{U}_{R_1}$ & $R_3$     & $\tilde{U}_{R_1}$ & $R_4$       & $\tilde{U}_{R_1}$ & $R_5$    & $\tilde{U}_{R_1}$ \\
+        \cmidrule(rl){2-3}
+        \cmidrule(rl){4-5}
+        \cmidrule(rl){6-7}
+        \cmidrule(rl){8-9}
+        \cmidrule(rl){10-11}
+                            & $\Omega$      & \%    & $\Omega$       & \%    & $\Omega$      & \%    & $\Omega$        & \%    & $\Omega$     & \%    \\
+        \midrule
+        Ohmova   metoda VA   & 9,6615 & 1,597 & 198,27 & 1,520 & 64,368 & 1,175 & 4566 & 0,966 & 29620 & 1,092 \\
+        Ohmova   metoda AV   & 10,084 & 0,915 & 217,49  & 0,926 & 63,816 & 1,130 & 4590   & 1,091 & 28889 & 3,972 \\
+        Převodník   s OZ     & 10,09  & 0,141 & 219,03  & 0,136 & 9,919  & 0,141 & 4667     & 0,132 & 30312 & 0,134 \\
+        Substituční   metoda & 9,10    & 0,115 & 218,00     & 0,115 & 57,2   & 0,115 & 4680     & 0,115 & 30400 & 0,115 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Grafy}
+
 \subsection{Příklady výpočtu}
 
 \section{Seznam použitých přístrojů}
