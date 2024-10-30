@@ -58,6 +58,65 @@
 
 \section{Teoretický úvod}
 
+Na počátku měření musíme posoudit velikosti odporů a požadovanou přesnost měření podle volby měřící metody.
+Velikosti odporů dělíme na:
+\begin{itemize}
+    \item malé ($<1\ \Omega$)
+    \item střední ($1 \div 10^6\ \Omega$)
+    \item velké ($> 10^6\ \Omega$)
+\end{itemize}
+
+\subsection{Ohmova metoda}
+
+Tato metoda je vhodná i pro nelineární elektrické odpory odpory.
+Výslednou hodnotu měŕeného odporu stanovujeme výpočtem z hodnot elektrického proudu a napětí dle Ohmova zákona.
+
+\subsubsection{Uspořádání VA}
+
+Voltmetr měří napětí na kýženém odporu, avšak také i úbytek napětí na ampérmetru.
+Volíme pro měření měření větších odporů, kde měřený odpor je mnohem větší než odpor ampérmetru.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{schema1.png}
+    \caption{Schéma uspořádání VA pro měření odporu Ohmovou metodou}
+\end{figure}
+
+\subsubsection{Uspořádání AV}
+
+Ampérmetr měří součet elektrických proudů protékaných měřeným odporem i voltmetrem. 
+Volíme pro měření menších odporů, kde je měřeňý odpor mnohem menší než vnitřní odpor voltmetru.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{schema2.png}
+    \caption{Schéma uspořádání AV pro měření odporu Ohmovou metodou}
+\end{figure}
+
+\subsection{Substituční metoda}
+
+Jedná se o zvláštní případ srovnávací metody.
+Tato metoda postavena na porovnávání velikosti měřeného odporu s odporem známé velikosti (etalonem).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{schema3.png}
+    \caption{Schéma zapojení pro měření odporu substituční metodou}
+\end{figure}
+
+\subsection{Převodník odpor-napětí s operačním zesilovačem}
+
+Tato metoda využív měření odporů s využitím číslicového voltmetru, ke kterému přidáme převodník, jehož výstupní napětí bude úměrné velkosti připojeného měřeného odporu.
+K tomuto účelu lze využít operační zesilovač, do jeho zpětné vazby se zapojí měřený odpor podle schématu.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{schema4.png}
+    \caption{Schéma zapojení jednoduchého převodníku pro měření odporu}
+\end{figure}
+
+\pagebreak
+
 \section{Výsledky měření}
 
 \subsection{Tabulky}
@@ -321,5 +380,22 @@
 \end{itemize}
 
 \section{Závěr}
+
+Naší úlohou bylo určit hodnoty předložených neznámých odporů Ohmovou metodou, substituční metodou a metodou s převodníkem.
+Hodnoty odporů určené Ohmovou metodou jsou uvedeny v tabulce číslo 1 spolu s ostatními vypočtenými hodnotami.
+Experimentálně jsme si ověřili, že uspořádání VA Ohmovy metody je vhodné pro měření řádově velkých odporů.
+Naopak, uspořádání AV Ohmovy (výsledky v tabulce číslo 2) metody je vhodné pro měření řádově malých odporů.
+
+Měřením provedeném substituční metodou jsme empiricky zjistili, že má konstantní nejistotu.
+Zdrojem této konstantní nejistoty je použitá odporové dekáda.
+
+Při měření neznámých odporů metodou s převodníkem je patrné, že hodnoty relativních nejistot mezi jednotlivými měřeními liší jen o malou odchylku.
+Zdroj tohoto jevu je stálost referenčního napĚtí a referenčního odporu použitého převodníku.
+Je též patrné, že tatot metoda vykazuje nejmenší relativní nejistoty ve srovnání s ostatními použitými metodami.
+
+Naměřené hodnoty odporu $R_3$ se mezi použitými metodami poměrně liší.
+Jedním z důvodů pro tento jev může být, že se nejedná o rezistor, ale jiný prvek s nelineární odporovou charakteristikou.
+
+Chyby v měřeních jsou způsobeny systematickými odchylkami z použitých metod měření, nejistotami použitých přístrojů ale také systematickou odchylkou zavednou námi během měření.
 
 \end{document}
