@@ -37,13 +37,14 @@ jobs:
             Uloha3/Uloha3A.tex
             Uloha3/Uloha3B.tex
             Uloha4/Uloha4.tex
-            Uloha5/Uloha5.tex
+            Uloha5/Uloha5A_AUDIO.tex
+            Uloha5/Uloha5B.tex
             Uloha6/Uloha6.tex
             Uloha7/Uloha7.tex
             Uloha8/Uloha8.tex
             Uloha9/Uloha9.tex
             Uloha10/Uloha10.tex
-          latexmk_use_xelatex: true
+          latexmk_use_xelatex: false
           latexmk_shell_escape: true
           work_in_root_file_dir: true
           continue_on_error: true
@@ -55,7 +56,8 @@ jobs:
           mv Uloha3/Uloha3A.pdf ./public/
           mv Uloha3/Uloha3B.pdf ./public/
           mv Uloha4/Uloha4.pdf ./public/
-          mv Uloha5/Uloha5.pdf ./public/
+          mv Uloha5/Uloha5A_AUDIO.pdf ./public/
+          mv Uloha5/Uloha5B.pdf ./public/
           mv Uloha6/Uloha6.pdf ./public/
           mv Uloha7/Uloha7.pdf ./public/
           mv Uloha8/Uloha8.pdf ./public/
@@ -73,7 +75,8 @@ jobs:
               <p><a href="./Uloha3A.pdf">Úloha č.3A: Měření odporů malých hodnot</a></p>
               <p><a href="./Uloha3B.pdf">Úloha č.3B: Automatizované měření impedance reproduktoru</a></p>
               <p><a href="./Uloha4.pdf">Úloha č.4: Měření napětí neharmonických signálů</a></p>
-              <p><a href="./Uloha5.pdf">Úloha č.5: </a></p>
+              <p><a href="./Uloha5A_AUDIO.pdf">Úloha č.5A AUDIO: Automatizované měření vlastností audio zesilovače</a></p>
+              <p><a href="./Uloha5B.pdf">Úloha č.5B: Měřicí převodníky s operačním zesilovačem</a></p>
               <p><a href="./Uloha6.pdf">Úloha č.6: </a></p>
               <p><a href="./Uloha7.pdf">Úloha č.7: </a></p>
               <p><a href="./Uloha8.pdf">Úloha č.8: </a></p>
