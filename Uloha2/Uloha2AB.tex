@@ -76,7 +76,7 @@
         $R_4$                & 108  & 2,4/120  & 2,16   & 102   & 12/120   & 10,2  & 4722,2    & 156  & 156             & 3,416           & 4566,2   & 0,966       \\
         $R_5$                & 77   & 0,6/120  & 0,385  & 115   & 12/120   & 11,5  & 29870     & 250  & 250             & 0,844           & 29620    & 1,092      \\
         \bottomrule
-        \multicolumn{3}{l}{$\delta_{TP_V} = 0,5\%$} & \multicolumn{3}{l}{$\delta_{TP_A} = 0,5\%$} 
+        \multicolumn{12}{l}{$\delta_{TP_V} = 0,5\%;\ \delta_{TP_A} = 0,5\%$}
     \end{tabular}
 \end{table}
 
@@ -86,7 +86,7 @@
     \caption{Naměřené a vypočtené hodnoty pro Ohmovu metodu AV}
     \begin{tabular}{lcccccccccccc}
         \toprule
-        \multirow{2}{*}{} & \multicolumn{3}{c}{$I_A$} & \multicolumn{3}{c}{$U_V$} & $R'_{X_{AV}}$ & $R_A$ & $\Delta_{R_{X_{AV}}}$ & $\delta_{R_{X_{AV}}}$ & $R_{X_{AV}}$ & $\tilde{U}_{R_{X_{AV}}}$ \\
+        \multirow{2}{*}{} & \multicolumn{3}{c}{$I_A$} & \multicolumn{3}{c}{$U_V$} & $R'_{X_{AV}}$ & $R_V$ & $\Delta_{R_{X_{AV}}}$ & $\delta_{R_{X_{AV}}}$ & $R_{X_{AV}}$ & $\tilde{U}_{R_{X_{AV}}}$ \\
         \cmidrule(rl){2-4}
         \cmidrule(rl){5-7}
         \cmidrule(rl){8-8}
@@ -103,7 +103,7 @@
         $R_4$                & 109   & 6/120    & 5,45  & 105   & 24/120   & 21    & 3853,2    & 24000 & -736,95         & -16,06          & 4590,2   & 1,091       \\
         $R_5$                & 69    & 2,4/120  & 1,38  & 117   & 12/120   & 11,7  & 8478,3    & 12000 & -20411          & -70,65          & 28889    & 3,972      \\
         \bottomrule
-        \multicolumn{3}{l}{$R_V = 1000 \Omega \slash V$} & \multicolumn{3}{l}{$\delta_{TP_V} = 0,5\%$} & \multicolumn{3}{l}{$\delta_{TP_A} = 0,5\%$} 
+        \multicolumn{12}{l}{$R_V = 1000 \Omega \slash V;\ \delta_{TP_V} = 0,5\%;\ \delta_{TP_A} = 0,5\%$}
     \end{tabular}
 \end{table}
 
@@ -126,7 +126,7 @@
         $R_4$                & 5000   & 10         & -4,67       & 4667   & 0,132   \\ 
         $R_5$                & 50000  & 10         & -3,03       & 30312  & 0,134   \\ 
         \bottomrule
-        \multicolumn{3}{l}{$U_{ref} = 5V$} & \multicolumn{3}{l}{$R_{ref} = 500 \Omega \text{ až } 5 M \Omega $}
+        \multicolumn{6}{l}{$U_{ref} = 5V;\ R_{ref} = 500 \Omega \text{ až } 5 M \Omega$}
     \end{tabular}
 \end{table}
 
@@ -148,7 +148,7 @@
         $R_4$                           & 5,0   & 4680        &                        \\
         $R_5$                           & 0,5 & 30400       &                       \\
         \bottomrule
-        \multicolumn{3}{l}{$\delta_{R_D} = 0,1\%$}
+        \multicolumn{4}{l}{$\delta_{R_D} = 0,1\%$}
     \end{tabular}
 \end{table}
 
@@ -177,6 +177,119 @@
 \subsection{Grafy}
 
 \subsection{Příklady výpočtu}
+
+\subsubsection{Ohmova metoda - uspořádání VA}
+
+\begin{enumerate}
+    \item Odpor vypočítaný z údajů přístrojů
+    \begin{multline*}
+        R'_{X_{VA}} = \textcolor{teal}{\frac{U_V}{I_A}} = \frac{1,3V}{109 \cdot 10^{-3}A} = \underline{\underline{13,76\ \Omega}} \hfill
+    \end{multline*}
+    \item Skutečná hodnota měřeného odporu
+    \begin{multline*}
+        R_{X_{VA}} = \textcolor{teal}{\frac{U_V}{I_A} - R_A} = \frac{1,3V}{109 \cdot 10^{-3}A} - 4,1 \Omega = \underline{\underline{9,661\ \Omega}} \hfill
+    \end{multline*}
+    \item Absolutní odchylka metody zapojení VA
+    \begin{multline*}
+        \Delta_{R_{X_{VA}}} = \textcolor{teal}{R'_{X_{VA}} - R_{X_{VA}}} = 13,76 \Omega - 9,661 \Omega = \underline{\underline{4,1\ \Omega}} \hfill
+    \end{multline*}
+    \item Relativní odchylka metody
+    \begin{multline*}
+        \delta_{R_{X_{VA}}} = \textcolor{teal}{\frac{R_A}{R_{X_{VA}}} \cdot 100\%} = \frac{4,1 \Omega}{9,661 \Omega} \cdot 100\% = \underline{\underline{42,43\ \%}} \hfill
+    \end{multline*}
+    \item Standardní přístrojová nejistota AMP (typu B)
+    \begin{multline*}
+        u_{BU} = \textcolor{teal}{\frac{\delta_{TP} \cdot X_R}{100 \% \cdot \chi}} = \frac{\delta_{TP_V} \cdot U_R}{100 \% \cdot \sqrt{3}} = \frac{0,5\% \cdot 2,4V}{100 \% \cdot \sqrt{3}} = 6,928 \cdot 10^{-3} V = \underline{\underline{6,928\ mV}} \hfill
+    \end{multline*}
+    \begin{multline*}
+        u_{BI} = \frac{\delta_{TP_A} \cdot I_R}{100 \% \cdot \sqrt{3}} = \frac{0,5\% \cdot 120 \cdot 10^{-3}A}{100 \% \cdot \sqrt{3}} = 346,4 \cdot 10^{-6} A = \underline{\underline{346,4\ \mu A}} \hfill
+    \end{multline*}
+    \item Standardní nejistota výsledku
+    \begin{multline*}
+        u_{R_{X_{VA}}} = \textcolor{teal}{\sqrt{\left(\frac{1}{I_A} \cdot u_{BU}\right)^2 + \left(\frac{U_V}{I_A^2} \cdot u_{BI}\right)^2}} =  \hfill \\
+        = \sqrt{\left(\frac{1}{109 \cdot 10^{-3}A} \cdot 6,928 \cdot 10^{-3} V\right)^2 + \left(\frac{1,5V}{(109 \cdot 10^{-3}A)^2} \cdot 346,4 \cdot 10^{-6} A\right)^2} = 77,15 \cdot 10^{-3} \Omega = \underline{\underline{77,15\ m \Omega}} \hfill
+    \end{multline*}
+    \item Relativní rozšířená nejistota
+    \begin{multline*}
+        \tilde{U}_{R_{X_{VA}}} = \frac{u_{R_{X_{VA}}} \cdot k_r}{R_{X_{VA}}} \cdot 100\% = \frac{77,15 \cdot 10^{-3} \Omega \cdot 2}{9,661 \Omega} \cdot 100\% = \underline{\underline{1,597\ \%}} \hfill
+    \end{multline*}
+\end{enumerate}
+
+\subsubsection{Ohmova metoda - uspořádání AV}
+
+\begin{enumerate}
+    \item Odpor vypočítaný z údajů přístrojů
+    \begin{multline*}
+        R'_{X_{AV}} = \textcolor{teal}{\frac{U_V}{I_A}} = \frac{1,08V}{108 \cdot 10^{-3}A} = \underline{\underline{10\ \Omega}} \hfill
+    \end{multline*}
+    \item Skutečná hodnota měřeného odporu
+    \begin{multline*}
+        R_{X_{AV}} = \textcolor{teal}{\frac{U_V}{I_A - \frac{U_V}{R_V}}} = \frac{1,08V}{108 \cdot 10^{-3}A - \frac{1,08V}{1200 \Omega}} = \underline{\underline{10,08\ \Omega}} \hfill
+    \end{multline*}
+    \item Absolutní odchylka metody zapojení AV
+    \begin{multline*}
+        \Delta_{R_{X_{AV}}} = \textcolor{teal}{R'_{X_{AV}} - R_{X_{AV}}} = 10 \Omega - 10,08 \Omega = \underline{\underline{-0,08\ \Omega}} \hfill
+    \end{multline*}
+    \item Relativní odchylka metody
+    \begin{multline*}
+        \delta_{R_{X_{AV}}} = \textcolor{teal}{\frac{\Delta_{R_{X_{AV}}}}{R_{X_{AV}}} \cdot 100\%} = \frac{0,08 \Omega}{10,08 \Omega} \cdot 100\% = \underline{\underline{-0,833\ \%}} \hfill
+    \end{multline*}
+    \item Standardní nejistota výsledku
+    \begin{multline*}
+        u_{R_{X_{AV}}} = \textcolor{teal}{\sqrt{\left(\frac{I_A \cdot u_{BU}}{\left(I_A - \frac{U_V}{R_V}\right)^2}\right)^2 + \left(\frac{U_V \cdot u_{BI}}{\left(I_A - \frac{U_V}{R_V}\right)^2}\right)^2}} = \hfill \\
+        = \sqrt{\left(\frac{108 \cdot 10^{-3}A \cdot 3,464 \cdot 10^{-3}V}{\left(108 \cdot 10^{-3}A - \frac{1,08V}{1200 \Omega}\right)^2}\right)^2 + \left(\frac{1,08V \cdot 346,4 \cdot 10^{-6} A}{\left(108 \cdot 10^{-3}A - \frac{1,08V}{1200 \Omega}\right)^2}\right)^2} = 44,12 \cdot 10^{-3} \Omega = \underline{\underline{44,12\ \Omega}} \hfill
+    \end{multline*}
+    \item Relativní rozšířená nejistota
+    \begin{multline*}
+        \tilde{U}_{R_{X_{AV}}} = \frac{u_{R_{X_{AV}}} \cdot k_r}{R_{X_{AV}}} \cdot 100\% = \frac{44,12 \cdot 10^{-3} \Omega \cdot 2}{10,08 \Omega} \cdot 100\% = \underline{\underline{0,91\ \%}} \hfill
+    \end{multline*}
+\end{enumerate}
+
+\subsubsection{Převodník odpor-napětí s operačním zesilovačem}
+
+\begin{enumerate}
+    \item Velikost měřeného odporu
+    \begin{multline*}
+        R_X = \textcolor{teal}{- \frac{R_{ref}}{U_{ref}} \cdot U_V} = - \frac{500 \Omega}{5V} \cdot (- 100,942 \cdot 10^{-3}V) = \underline{\underline{10,09\ \Omega}} \hfill
+    \end{multline*}
+    \item Standardní nejistota zdroje referenčního napětí
+    \begin{multline*}
+        u_{BU_{ref}} = \textcolor{teal}{\frac{\delta_{U_{ref}} \cdot U_{ref}}{100\% \cdot \chi}} = \frac{0,05\% \cdot 5V}{100\% \cdot \sqrt{3}} = 1,443 \cdot 10^{-3}V = \underline{\underline{1,443\ mV}} \hfill
+    \end{multline*}
+    \item Standardní nejistota referenčního odporu
+    \begin{multline*}
+        u_{BR_{ref}} = \textcolor{teal}{\frac{\delta_{U_{ref}} \cdot U_{ref}}{100\% \cdot \chi}} = \frac{0,1\% \cdot 500 \Omega}{100\% \cdot \sqrt{3}} = 288,6 \cdot 10^{-3} \Omega = \underline{\underline{288,6\ m\Omega}} \hfill
+    \end{multline*}
+    \item Standardní nejistota vlivu napěťové nesymetrie
+    \begin{multline*}
+        u_{BU_{ofs}} = \textcolor{teal}{\frac{U_{ofs}}{\sqrt{3}}} = \frac{40 \cdot 10^{-6} V}{\sqrt{3}} = 23,09 \cdot 10^{-6} V = \underline{\underline{23,09\ \mu V}} \hfill
+    \end{multline*}
+    \item Standardní přístrojové nejistota voltmetru
+    \begin{multline*}
+        u_{BU} = \textcolor{teal}{\frac{\left|\delta_M \cdot X_M\right| + \left|\delta_R \cdot X_R\right|}{100 \% \cdot \chi}} = \frac{\left|0,018\% \cdot (- 100,942 \cdot 10^{-3}V)\right| + \left|0,008\% \cdot 100 \cdot 10^{-3}V\right|}{100 \% \cdot \sqrt{3}} = \hfill \\
+        = 15,10 \cdot 10^{-6} V = \underline{\underline{15,1\ \mu V}} \hfill
+    \end{multline*}
+    \item Standardní nejistota výsledku měření odporu
+    \begin{multline*}
+        u_{R_X} = \textcolor{teal}{\sqrt{\left(\frac{-R_{ref}}{U_{ref}} u_{BU}\right)^2 + \left(\frac{-R_{ref} \cdot U_V}{U_{ref}^2} u_{BU_{ref}}\right)^2 + \left(\frac{-U_V}{U_{ref}} u_{BR_{ref}}\right)^2 + \left(\frac{R_{ref} \left(U_{ref} - U_V\right)}{U_{ref}^2} u_{BU_{ofs}}\right)^2}} = \hfill \\
+        = \sqrt{\left(\frac{-500 \Omega}{5V} \cdot 15,10 \cdot 10^{-6} V\right)^2 + \left(\frac{-500 \Omega \cdot (- 100,942 \cdot 10^{-3}V)}{(5V)^2} \cdot 1,443 \cdot 10^{-3}V\right)^2 + } \hfill \\
+        \overline{+ \left(\frac{-(- 100,942 \cdot 10^{-3}V)}{5V} \cdot 288,6 \cdot 10^{-3} \Omega\right)^2 + \left(\frac{500 \Omega \cdot \left(5V - (- 100,942 \cdot 10^{-3}V)\right)}{(5V)^2} \cdot 23,09 \cdot 10^{-6} V\right)^2} = \hfill \\
+        = 7,091 \cdot 10^{-3} \Omega = \underline{\underline{7,091\ m\Omega}} \hfill
+    \end{multline*}
+    \item Relativní rozšířená nejistota
+    \begin{multline*}
+        \tilde{U}_{R_X} = \textcolor{teal}{k_r \cdot \frac{u_{R_X}}{R_X} \cdot 100 \%} = 2 \cdot \frac{7,091 \cdot 10^{-3} \Omega}{10,09 \Omega} \cdot 100 \% = \underline{\underline{0,134\ \%}} \hfill
+    \end{multline*}
+\end{enumerate}
+
+\subsubsection{Substituční metoda}
+
+\begin{enumerate}
+    \item Relativní rozšířená nejistota
+    \begin{multline*}
+        \tilde{U}_{R_X} = \textcolor{teal}{k_r \cdot \frac{\delta_{R_D}}{\chi}} = 2 \cdot \frac{0,1\%}{\sqrt{3}} = \underline{\underline{0,115\ \%}} \hfill
+    \end{multline*}
+\end{enumerate}
 
 \section{Seznam použitých přístrojů}
 

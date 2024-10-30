@@ -81,7 +81,7 @@
         50000  & 5,105 & 1,017 & 0,64 & 0,128 & 2,4 & 0,500 & 4,60 & 0,958 \\
         100000 & 5,688 & 1,133 & 0,15 & 0,030 & 0,6 & 0,125 & 4,00 & 0,833 \\
         \bottomrule
-        \multicolumn{3}{l}{$U = 5V$}
+        \multicolumn{9}{l}{$U = 5V$}
     \end{tabular}
 \end{table}
 
@@ -101,7 +101,7 @@
         Trojúhelník             & 1,155 & 5,022 & 0,440 & 4,810 & -3,800 & 5,000 & 0,010  & 4,600 & -8,000 & 4,782 & -4,356 \\
         Obdélník                & 1,000 & 5,029 & 0,580 & 5,540 & 10,80  & 4,986 & -0,270 & 5,200 & 4,000  & 4,680 & -6,391 \\
         \bottomrule
-        &\multicolumn{2}{l}{$U = 5V$} & \multicolumn{2}{l}{$f = 50 Hz$}
+        \multicolumn{12}{l}{$U = 5V;\ f = 50 Hz$}
     \end{tabular}
 \end{table}
 
@@ -121,7 +121,7 @@
         Trojúhelníkový          & 4,012 & -20,08 & 3,86 & -23,11 & 3,874 & -22,83 & 4,0 & -20,32 & 4,376 & -12,82 \\
         Obdélníkový             & 4,056 & -19,20 & 4,47 & -10,96 & 4,023 & -19,85 & 4,2 & -16,33 & 4,725 & -5,867 \\
         \bottomrule
-        &\multicolumn{2}{l}{$U_{\sim} = 4V$} & \multicolumn{2}{l}{$U_s = 3V$} & \multicolumn{2}{l}{$f = 50 Hz$} & \multicolumn{2}{l}{$U_R = 5,02V$}
+        \multicolumn{11}{l}{$U_{\sim} = 4V;\ U_s = 3V;\ f = 50 Hz;\ U_R = 5,02V$}
     \end{tabular}
 \end{table}
 
@@ -157,13 +157,32 @@
         45     & 5,005 & 5,006 & 0,020  & 5,05 & 0,899 \\
         50     & 5,001 & 5,028 & 0,540  & 5,04 & 0,780 \\
         \bottomrule
-        \multicolumn{2}{l}{$U_{R_{50\%}} = 5V$}
+        \multicolumn{6}{l}{$U_{R_{50\%}} = 5V$}
     \end{tabular}
 \end{table}
 
 \subsection{Grafy}
 
 \subsection{Příklady výpočtu}
+
+\begin{enumerate}
+    \item Kmitočtová závislost
+    \begin{multline*}
+        A_1 \left(f\right) = \textcolor{teal}{\frac{U \left(f\right)}{U \left(50\right)}} = \frac{U_1 \left(10\right)}{U \left(50\right)} = \frac{5,003V}{5,021V} = \underline{\underline{996,4 \cdot 10^{-3}}} \hfill
+    \end{multline*}
+    \item Korigovaná hodnota napětí
+    \begin{multline*}
+        U_{2k} = \textcolor{teal}{U_2 \cdot \frac{k_t}{k_{tH}}} = 4,81V \cdot \frac{1,155}{1,111} = \underline{\underline{5\ V}} \hfill
+    \end{multline*}
+    \item Relativní odchylka metody
+    \begin{multline*}
+        \delta_1 = \textcolor{teal}{\frac{U_1 - U}{U} \cdot 100\%} = \frac{5,022V - 5V}{5V} \cdot 100 \% = \underline{\underline{0,44\ \%}} \hfill
+    \end{multline*}
+    \item Korigovaná relativní odchylka
+    \begin{multline*}
+        \delta_{2k} = \textcolor{teal}{\frac{U_{2k} - U}{U} \cdot 100\%} = \frac{4,986 V - 5V}{5V} \cdot 100 \% = \underline{\underline{-0,27\ \%}} \hfill
+    \end{multline*}
+\end{enumerate}
 
 \section{Seznam použitých přístrojů}
 
