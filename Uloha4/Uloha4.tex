@@ -69,6 +69,57 @@
 
 \section{Teoretický úvod}
 
+Efektivní hodnota je označení pro energetický obsah napětí.
+Je definována vztahem:
+\begin{equation*}
+    U = \sqrt{\frac{1}{T} \int_0^T u^2\left(t\right) dt}
+\end{equation*}
+
+Skutečnou efektivní hodnotu měří analogové přístroje feromagnetické, elektrodynamické, elektrostatické a magnetoelektrické s termočlánkem.
+Mezi digitálními pak ty s označením TRMS (True Root Mean Square).
+Osciloskopy pro měření používají rozklad na Fourierovu řadu a efektivní hodnotu pak vyjadřují podle vztahu:
+\begin{equation*}
+    U = \sqrt{U_S^2 + \sum_{k=1}^{\infty} U_k^2}
+\end{equation*}
+kde Us je stejnosměrnou složkou, Uk střídavá složka a k značí k-tou harmonickou složku.
+
+Většina přístrojů filtruje stejnosměrnou složku oddělovacím kondenzátorem a propouští pouze střídavou složku efektivní hodnoty.
+Uvažujeme-li konečný počet harmonických složek N:
+\begin{equation*}
+    U \left(N\right) = \sqrt{U_S^2 + \sum_{k=1}^{N} U_k^2}
+\end{equation*}
+
+Relativní odchylka v závislosti na počtu harmonických složek je definována vztahem:
+\begin{equation*}
+    \delta_U \left(N\right) = \frac{U \left(N\right) - U}{U} \cdot 100\%
+\end{equation*}
+
+Přístroje jsou obvykle kalibrovány pro referenční kmitočet 50 Hz. Kmitočtová závislost je definována vztahem:
+\begin{equation*}
+    A \left(f\right) = \frac{U\left(f\right)}{U\left(50\right)}
+\end{equation*}
+kde $U\left(f\right)$ je hodnota na přístroji při kmitočtu $f$.
+
+Existují také přístroje, které měří střední absolutní hodnotu.
+Jsou to magnetoelektrické s usměrňovači a také levnější číslicové.
+Střední absolutní hodnota je definována vztahem:
+\begin{equation*}
+    U_{sa} = \frac{1}{T} \int_{0}^{T} \left|u\left(t\right)\right| dt
+\end{equation*}
+Pro kmitočty, ve kterých přístroje nejsou nekalibrovány udává výrobce odchylku pro určité rozsahy. 
+
+Některé přístroje se pro měření efektivní hodnoty přímo nehodí, můžeme ale využít vztahu:
+\begin{equation*}
+    U = \sqrt{U_S^2 + U_{\sim}^2}
+\end{equation*}
+$U_S$ je zde stejnosměrnou složkou a $U_{\sim}$ je složka střídavá.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{schema1.png}
+    \caption{Schéma zapojení pracoviště při měření voltmetry}
+\end{figure}
+
 \section{Výsledky měření}
 
 \subsection{Tabulky}
@@ -195,6 +246,7 @@
     \caption{Závislost efektivní hodnoty napětí $U_1$, $U_{OSC}$, $U_R$ a relativních chyb $\delta_{OSC}$, $\delta_R$ na střídě}
 \end{figure}
 
+\pagebreak
 
 \subsection{Příklady výpočtu}
 
@@ -230,5 +282,19 @@
 \end{itemize}
 
 \section{Závěr}
+
+Při měření kmitočtové závislosti byl nejpřesnějším měřícím přístrojem ruční číslicový multimetr UT61E, který i přesto, že výrobce uvádí pouze pro měření do 10khz, měřil poměrně přesně ažd o 50kHz.
+Číslicový voltmetr UT61A měřil s přijatelnou přesností do 2kHz, i když jej výrobce určuje pouze pro rozsah 45–400Hz.
+U magnetoeletrického multimetru PU 500 se hodnota napětí od počátku odchylovala od referenčního voltmetru o 0,2V, ale udržoval tuto hodnotu konzistentně až do 2 kHz, výrobce jej určuje pro měření do 1 kHz.
+Toto je však způsobeno zejména stupnicí s nízkým rozlišením.
+ML 10 byl kmitočtově nezávislý do 20kHz.
+Tento ořístroj také jako jediný vykázal značnou výchylku při měření s nejnižší hodnotou, tedy 10 Hz.
+
+Při použití měŕících přístrojů UT61A nebo PU 500 na měření neharmonických signálů je třeba kompenzovat nepřesnost vzniklou usměrněním signálu pomocí činitele tvaru $k_t$.
+
+Při měření napětí s nenulovou stejnosměrnou složkou se i po započítání činitele tvaru jako jediný vhodný přístroj pro toto měření ukázal multimetr PU 500. Přístroje UT61A a UT61E nebyly schopny měřit obě složky signálu současně.
+
+Pro měření obdélníkové signálu s různými poměry střídy správně měřil pouze a osciloskop.
+Multimetr UT61E dosáhl při měření očekávané hodnoty až při hodnotě střídy 45\%.
 
 \end{document}
