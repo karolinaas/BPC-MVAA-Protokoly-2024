@@ -105,6 +105,7 @@ plt.xlabel("$U_1\ [V]$")
 plt.ylabel("$U_2\ [V]$")
 plt.title("Závislost $U_2 = f(U_1)$")
 plt.xscale("log")
+plt.text(8.5, -0.603, "$U_2 = -0,026 \cdot ln (U_1) - 0,5411$", color = "black", horizontalalignment = "right", verticalalignment = "top", bbox=dict(facecolor = "white", edgecolor = "black", linestyle = "--"))
 
 plt.savefig("grafy/graf_prevodnik_logUU.pdf", format="pdf", bbox_inches="tight")
 
