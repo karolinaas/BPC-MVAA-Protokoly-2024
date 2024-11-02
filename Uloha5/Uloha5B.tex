@@ -1,9 +1,5 @@
 \documentclass[a4paper, czech]{article}
 
-\title{Úloha č.1: Stanovení nejistot při přímém měření výkonu}
-\author{Karolína Andrea Šebestová \and Filip Kokavec}
-\date{Datum měření: 2.10.2024}
-
 \usepackage[czech]{babel}
 \usepackage{indentfirst}
 \usepackage{graphicx}
@@ -11,16 +7,89 @@
 \usepackage[margin=1.5cm]{geometry}
 \usepackage{booktabs}
 \usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{tabularray}
+\usepackage{bold-extra}
 
 \begin{document}
-
-\maketitle
+\begin{table}[H]
+    \centering
+    \begin{tblr}{
+        cell{1}{1} = {c = 2, r = 4}{c}, % Logo
+        cell{1}{4} = {c = 3}{c}, % Předmět
+        cell{2}{4} = {c = 3}{c}, % Jméno
+        cell{3}{4} = {}{c}, % Ročník
+        cell{3}{6} = {}{c}, % Studijní skupina
+        cell{4}{4} = {}{c}, % Spolupracoval
+        cell{4}{6} = {}{c}, % Mereno dne
+        cell{5}{1} = {c = 2}{55mm}, % Kontroloval
+        cell{5}{3} = {c = 2}{55mm}, % Hodnoceni
+        cell{5}{5} = {c = 2}{55mm}, % Dne
+        cell{6}{2} = {c = 5}{}, % Nazev ulohy
+        cell{7}{1} = {}{c}, % Číslo úlohy
+        cell{7}{2} = {c = 5}{c}, % Název úlohy
+        vline{1,2,7} = {1.2pt},
+        vline{3,5},
+        hline{1,5,6,8} = {1.2pt},
+        hline{2,3,4}
+        }
+        \includegraphics{logo_fekt.png} & & \textsuperscript{Předmět} & \large \textbf{Měření v audiotechnice} \\
+             & & \textsuperscript{Jméno} & \large \textbf{Karolína Šebestová} \\
+             & & \textsuperscript{Ročník} & \large \textbf{3.} & \textsuperscript{Studijní skupina} & \large \textbf{St 14:00} \\
+             & & \textsuperscript{Spolupracoval} & \large \textbf{Filip Kokavec} & \textsuperscript{Měřeno dne} & \large \textbf{30.10.2024} \\
+        \textsuperscript{Kontroloval} & & \textsuperscript{Hodnocení} & & \textsuperscript{Dne} \\
+        \textsuperscript{Číslo úlohy} & \textsuperscript{Název úlohy} \\
+        \Large \textbf{5B} & \Large \textsc{\textbf{Měřicí převodníky s operačním zesilovačem}} \\
+    \end{tblr}
+\end{table}
 
 \section{Zadání}
+
+\begin{itemize}
+    \item Obeznamte se s vlastnostmi operačního zesilovače ve funkci převodníku v měřicí technice.
+    \item Proměřte základní zapojení operačního zesilovače jako lineárního převodníku U/U, U/I, I/U a I/I, dále logaritmického převodníku logU/U.
+    \item Určete hodnotu převodní konstanty a pracovní rozsah vstupních hodnot jednotlivých převodníků.
+    \item Určete vstupní odpor převodníků.
+\end{itemize}
 
 \section{Teoretický úvod}
 
 \section{Výsledky měření}
+
+\subsection{Tabulky}
+
+\subsection{Grafy}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{grafy/graf_prevodnik_UU.pdf}
+    \caption{Převodník U/U - Závislost výstupního napětí $U_2$ na vstupním napětí $U_1$}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{grafy/graf_prevodnik_UI.pdf}
+    \caption{Převodník U/I - Závislost výstupního proudu $I_2$ na vstupním napětí $U_1$}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{grafy/graf_prevodnik_IU.pdf}
+    \caption{Převodník I/U - Závislost výstupního napětí $U_2$ na vstupním proudu $I_1$}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{grafy/graf_prevodnik_II.pdf}
+    \caption{Převodník I/I - Závislost výstupního proudu $I_2$ na vstupním proudu $I_1$}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{grafy/graf_prevodnik_logUU.pdf}
+    \caption{Převodník log U/U - Závislost výstupního napětí $U_2$ na vstupním napětí $U_1$}
+\end{figure}
 
 \subsection{Příklady výpočtu}
 
