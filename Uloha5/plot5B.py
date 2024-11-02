@@ -108,4 +108,4 @@ plt.xscale("log")
 
 plt.savefig("grafy/graf_prevodnik_logUU.pdf", format="pdf", bbox_inches="tight")
 
-#plt.show()
+plt.show()
