@@ -55,6 +55,8 @@
 
 \section{Teoretický úvod}
 
+\pagebreak
+
 \section{Výsledky měření}
 
 \subsection{Tabulky}
@@ -109,15 +111,136 @@
     \end{tabular}
 \end{table}
 
+\begin{minipage}{0.48\textwidth}
+    \begin{table}[H]
+        \catcode`\-=12
+        \centering
+        \caption{Rychlost přeběhu}
+        \begin{tabular}{cccccc}
+            \toprule
+            \multirow{2}{*}{Hrana} & \multicolumn{2}{c}{$\Delta u$}                    & \multicolumn{2}{c}{$\Delta t$}   & $SR$         \\
+            \cmidrule(rl){2-3}
+            \cmidrule(rl){4-5}
+            \cmidrule(rl){6-6}
+                                & \multicolumn{2}{c}{V}                     & \multicolumn{2}{c}{µs}   & V/µs       \\
+            \midrule
+            Náběžná                & \multicolumn{2}{l}{\multirow{2}{*}{4,71}} & \multicolumn{2}{l}{3,17} & 1,485 \\
+            Sestupná               & \multicolumn{2}{l}{}                      & \multicolumn{2}{l}{3,60}  & 1,308 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+    \begin{table}[H]
+        \catcode`\-=12
+        \centering
+        \caption{Harmonické zkreslení}
+        \begin{tabular}{cccc}
+            \toprule
+            $n$  & $f$     & $L_n$      & $U_n$         \\
+            \cmidrule(rl){1-1}
+            \cmidrule(rl){2-2}
+            \cmidrule(rl){3-3}
+            \cmidrule(rl){4-4}
+            -  & Hz    & dBV     & mV         \\
+            \midrule
+            1  & 997   & -12,50  & 237,1 \\
+            2  & 1 994 & -67,50  & 0,421 \\
+            3  & 2 991 & -72,50  & 0,237 \\
+            4  & 3 988 & -85,00  & 0,056 \\
+            5  & 4 985 & -68,12  & 0,392 \\
+            6  & 5 982 & -72,50  & 0,237 \\
+            7  & 6 979 & -77,50  & 0,133 \\
+            8  & 7 976 & -90,00  & 0,031 \\
+            9  & 8 973 & -83,75  & 0,064 \\
+            10 & 9 970 & -88,75  & 0,036 \\
+            \bottomrule
+            \multicolumn{4}{c}{$THD = 0,289\ \%$}
+        \end{tabular}
+    \end{table}
+\end{minipage}
+
+\begin{minipage}{0.48\textwidth}
+    \begin{table}[H]
+        \catcode`\-=12
+        \centering
+        \caption{Mezikanálové přeslechy}
+        \begin{tabular}{cccc}
+            \toprule
+            $f$      & $U_{v \acute{y} st_1}$ & $U_{v \acute{y} st_2}$ & $L_p$     \\
+            \cmidrule(rl){1-1}
+            \cmidrule(rl){2-2}
+            \cmidrule(rl){3-3}
+            \cmidrule(rl){4-4}
+            Hz     & V      & mV     & dB     \\
+            \midrule
+            997    & 0,692  & 0,007  & -99,90 \\
+            1 994  & 0,692  & 0,012  & -95,22 \\
+            4 985  & 0,692  & 0,014  & -93,88 \\
+            9 970  & 0,693  & 0,020  & -90,80 \\
+            14 955 & 0,694  & 0,031  & -87,01 \\
+            19 940 & 0,697  & 0,047  & -83,42 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{minipage}
+\begin{minipage}{0.48\textwidth}
+    \begin{table}[H]
+        \catcode`\-=12
+        \centering
+        \caption{Dynamický rozsah}
+        \begin{tabular}{ccc}
+            \toprule
+            $U_{v\acute{y}st_{max}}$ & $U_{v\acute{y}st_{min}}$ & $SNR$ \\
+            \cmidrule(rl){1-1}
+            \cmidrule(rl){2-2}
+            \cmidrule(rl){3-3}
+            V                        & mV                       & dB    \\
+            \midrule
+            0,292                    & 0,004                    & 97,27 \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+\end{minipage}
+
 \subsection{Grafy}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{grafy/graf_kmitoctova_charakteristika.pdf}
-    \caption{Kmitočtové charakteristiky přenosu zesilovače}
+    \caption{Kmitočtové charakteristiky modulu a fáze přenosu}
 \end{figure}
 
 \subsection{Příklady výpočtu}
+
+\begin{enumerate}
+    \item Rychlost přeběhu (Slew Rate)
+    \begin{multline*}
+        SR = \textcolor{teal}{\frac{\Delta u}{\Delta t}} = \frac{4,71 \, V}{3,17 \, \mu s} = \underline{\underline{1,485 \, V / \mu s}} \hfill
+    \end{multline*}
+
+    \item Amplitudy vyšších harmonických složek
+    \begin{multline*}
+        \textcolor{teal}{L_{dBV} = 20 \cdot log \left( U \right)} \hfill \\
+        \ \ \ U_n = 10^{\cfrac{L_{dBV}}{20}} \hfill \\
+        \ \ \ U_1 = 10^{\cfrac{L_1}{20}} = 10^{\cfrac{-12,5 \, dBV}{20}} = 237,1 \cdot 10^{-3} \, V = \underline{\underline{237,1\, mV}} \hfill
+    \end{multline*}
+
+    \item Celkové harmonické zkreslení
+    \begin{multline*}
+        THD = \textcolor{teal}{\frac{\sqrt{U_2^2 + U_3^2 + ... + U_n^2}}{\sqrt{U_1^2 + U_2^2 + U_3^2 + ... + U_n^2}} \cdot 100 \, \%} = \underline{\underline{0,289\, \%}} \hfill
+    \end{multline*}
+
+    \item Úroveň mezikanálových přeslechů
+    \begin{multline*}
+        L_p = \textcolor{teal}{20 \cdot log \left( \frac{U_{v \acute{y} st_2}}{U_{v \acute{y} st_1}} \right)} = 20 \cdot log \left( \frac{0,007 \cdot 10^{-3} \, V}{0,692 \, V} \right) = \underline{\underline{-99,90 \, dB}} \hfill
+    \end{multline*}
+
+    \item Dynamický rozsah (Signal to Noise Ratio)
+    \begin{multline*}
+        SNR = \textcolor{teal}{20 \cdot log \left( \frac{U_{v \acute{y} st_{max}}}{U_{v \acute{y} st_{min}}} \right)} = 20 \cdot log \left( \frac{0,292 \, V}{0,004 \cdot 10^{-3} \, V} \right) = \underline{\underline{97,26 \, dB}} \hfill
+    \end{multline*}
+\end{enumerate}
 
 \section{Seznam použitých přístrojů}
 
