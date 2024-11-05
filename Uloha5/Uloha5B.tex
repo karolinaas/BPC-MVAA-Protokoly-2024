@@ -56,6 +56,39 @@
 
 \section{Teoretický úvod}
 
+Zesilovač je zařízení, které je schopno transformací elektrické energie z vnějšího zdroje měnit výstupní parametry.
+Ideálním zesilovačem nazýváme takový zesilovač, který má nekonečné zesílení a té nekonečný vstupní odpor.
+Volbou použité zpětné vazby zesilovače je možno vytvořit čtyři základní lineární převodníky.
+Častým je také využitá nelineárních převodníků, které vykazují obvyklé matematické funkce.
+Známe zapojení zesilovačů jak invertující tak neinvertující. Neinvertující zapojení mají polaritu výstupního signálu shodnou se vstupním signálem.
+
+\begin{itemize}
+    \item \textbf{Převodník U/U} - vstupní napětí zesilovače se ve zpětnovazebném zapojení blíží nule. Převodní konstanta A je určena vztahem:
+    \begin{equation*}
+        A = \frac{U_2}{U_1}
+    \end{equation*}
+
+    \item \textbf{Převodník U/I} - nevýhoda tohoto převodníku je, že výstup není spojen se společným potenciálem (je plovoucí). Převodní konstanta S je definována vztahem:
+    \begin{equation*}
+        S = \frac{I_2}{U_1}
+    \end{equation*}
+
+    \item \textbf{Převodník I/U} - převodní konstanta W je určena vztahem:
+    \begin{equation*}
+        W = \frac{U_2}{I_1}
+    \end{equation*}
+
+    \item \textbf{Převodník I/I} - převodní konstanta (v tomto případě proudové zesílení) je definována vztahem:
+    \begin{equation*}
+        B = \frac{I_2}{I_1}
+    \end{equation*}
+
+    \item \textbf{Převodník logU/U} - tento převodník využívá exponenciální závislosti mezi proudem kolektoru a proudem v bázi tranzistoru. Jeho nevýhodou je, že tranzistor je teplotně závislý a pro skutečné využití v praxi je potřeba zkonstruovat také teplotní kompenzaci. Parametr $K_1$ udává směrnici logaritmické závislosti a $K_2$ vertikální napěťový posun.
+    \begin{equation*}
+        U_2 = K_1 \cdot log (U_1) + K_2
+    \end{equation*}
+\end{itemize}
+
 \begin{figure}[H]
     \centering
     \begin{circuitikz}
@@ -361,6 +394,27 @@
 
 \section{Seznam použitých přístrojů}
 
+\begin{itemize}
+    \item Ruční číslicový multimetr Finest 703 TRUE RMS, v.č. 180601927
+    \item Ruční číslicový multimetr Finest 703 TRUE RMS, v.č. 180601950
+    \item Ruční číslicový multimetr Finest 703 TRUE RMS, v.č. 180601951
+\end{itemize}
+
 \section{Závěr}
+
+Úkolem tohoto měření bylo ověřit několik základních zapojení operačního zesilovače. Dále také určit hodnoty převodních konstant, pracovní rozsahy a také vstupní odpory měřených převodníků.
+
+Námi určená pracovní oblast převodníku U/U je 0-6V. Převodní konstanta je rovna hodnotě 2,431 a vstupní odpor je roven hodnotě 10\,M$\Omega$. Tento převodník je neinvertující.
+
+Námi určená pracovní oblast převodníku U/I je 0-15V. Převodní konstanta je rovna hodnotě 97\,$\mu$S a vstupní odpor je roven hodnotě 133,3\,k$\Omega$. Tento převodník je neinvertující.
+
+Námi určená pracovní oblast převodníku I/U je 0-1,2mA. Převodní konstanta je rovna hodnotě -10,79\,k$\Omega$ a vstupní odpor je roven hodnotě 285,9\,$\Omega$. Tento převodník je invertující.
+
+Námi určená pracovní oblast převodníku I/I je 0-3,25mA. Převodní konstanta je rovna hodnotě -1,942 a vstupní odpor je roven hodnotě 56,68\,$\Omega$. Tento převodník je invertující.
+
+Námi určená pracovní oblast převodníku logU/U je 0-15V. Konstanta $K_1$ je rovna hodnotě -0,026\,V/dek a konstanta $K_2$ je rovna -0,5411 V. Vstupní odpor je roven hodnotě 148,7\,$\Omega$. Tento převodník je invertující.
+
+Námi naměřené hodnoty odpovídají našim teoretickým předpokladům. Lze tedy usoudit, že nedošlo k žádným větším systematickým chybám měření.
+
 
 \end{document}
