@@ -11,6 +11,7 @@
 \usepackage{multirow}
 \usepackage{tabularray}
 \usepackage{bold-extra}
+\usepackage{circuitikz}
 
 \begin{document}
 \begin{table}[H]
@@ -54,6 +55,114 @@
 \end{itemize}
 
 \section{Teoretický úvod}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+        \draw[thick] (0,0) to (5,0) to (5,-3) node[ocirc, scale=2](CH11){}
+        to (5,-3.5) node[ocirc, scale=2](CH12){}
+        to (5,-4.5) node[ocirc, scale=2](CH21){}
+        to (5,-5) node[ocirc, scale=2](CH22){}
+        to (5,-6) to (0,-6) to (0,-4.5) node[ocirc, scale=2](GEN2){}
+        to (0,-5) node[ocirc, scale=2](GEN1){}
+        to (0,0);
+
+        \draw (2.5,-7.5) node[fourport](AMP){};
+
+        \draw[thick] (CH21) to ++(0.5,0) coordinate(Aport3) to (Aport3 |- AMP.port3) to (AMP.port3) node[ocirc, scale=2]{};
+        \draw[thick] (CH22) to ++(1,0) coordinate(Aport2) to (Aport2 |- AMP.port2) to (AMP.port2) node[ocirc, scale=2]{};
+
+        \draw[thick] (CH11) to ++(0.5,0) to ++(0,3.5) to ++(-6,0) coordinate(Aport4) to (Aport4 |- AMP.port4) to (AMP.port4) node[ocirc, scale=2]{};
+        \draw[thick] (CH12) to ++(1,0) to ++(0,4.5) to ++(-7,0) coordinate(Aport1) to (Aport1 |- AMP.port1) to (AMP.port1) node[ocirc, scale=2]{};
+
+        \draw[thick] (GEN2) to[] (GEN2 -| Aport4) node[circ]{};
+        \draw[thick] (GEN1) to[] (GEN1 -| Aport1) node[circ]{};
+
+        \draw (AMP) node[ampshape]{} ++(0,6) node[]{\Large \textbf{OSCILOSKOP}};
+        \draw (AMP) ++(2,0) node[]{CH1 výst} ++(-4,0) node[]{CH1 vst};
+        \draw (GEN1) ++(1,0.25) node[]{GEN výst};
+        \draw (CH11) ++(-0.5,-0.25) node[]{CH1};
+        \draw (CH21) ++(-0.5,-0.25) node[]{CH2};
+
+        \draw[thick, dashed] (5,-0.5) coordinate(USB) to ++(3,0) to ++(0,-1) coordinate(RECT_POS);
+        \draw[thick] (RECT_POS) ++(-1,0) rectangle ++(2,-1) node[pos=0.5]{\Large \textbf{PC}};
+        \draw (USB) ++(-0.5,0) node[]{USB};
+    \end{circuitikz}
+    \caption{Schéma zapojení pro měření kmitočtových charakteristik}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+        \draw[thick] (0,0) to (5,0) to (5,-3) node[ocirc, scale=2](CH11){}
+        to (5,-3.5) node[ocirc, scale=2](CH12){}
+        to (5,-4.5) node[ocirc, scale=2](CH21){}
+        to (5,-5) node[ocirc, scale=2](CH22){}
+        to (5,-6) to (0,-6) to (0,-4.5) node[ocirc, scale=2](GEN2){}
+        to (0,-5) node[ocirc, scale=2](GEN1){}
+        to (0,0);
+
+        \draw (2.5,-7.5) node[fourport](AMP){};
+
+        \draw[thick] (CH21) to ++(0.5,0) coordinate(Aport3) to (Aport3 |- AMP.port3) to (AMP.port3) node[ocirc, scale=2]{};
+        \draw[thick] (CH22) to ++(1,0) coordinate(Aport2) to (Aport2 |- AMP.port2) to (AMP.port2) node[ocirc, scale=2]{};
+
+        \draw[thick] (GEN2) to ++(-0.5,0) coordinate(Bport4) to (Bport4 |- AMP.port4) to (AMP.port4) node[ocirc, scale=2]{};
+        \draw[thick] (GEN1) to ++(-1,0) coordinate(Bport1) to (Bport1 |- AMP.port1) to (AMP.port1) node[ocirc, scale=2]{};
+
+        \draw (AMP) node[ampshape]{} ++(0,6) node[]{\Large \textbf{OSCILOSKOP}};
+        \draw (AMP) ++(2,0) node[]{CH1 výst} ++(-4,0) node[]{CH1 vst};
+        \draw (GEN1) ++(1,0.25) node[]{GEN výst};
+        \draw (CH11) ++(-0.5,-0.25) node[]{CH1};
+        \draw (CH21) ++(-0.5,-0.25) node[]{CH2};
+    \end{circuitikz}
+    \caption{Schéma zapojení pro měření
+    harmonického zkreslení}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+        \draw[thick] (0,0) rectangle (3.5,-3) node[pos=0.5]{\Large \textbf{OSC}} ++(0,0.5) coordinate(GEN_VÝST);
+        \draw[thick] (5,0) rectangle ++(5,-3) node[ampshape, pos=0.5, thin]{} ++(0,0.5) coordinate(CH2) ++(0,2) coordinate(CH1);
+
+        \draw[thick] (GEN_VÝST) ++(0,0.25) node[ocirc, scale=2]{} to ++(0.5,0) to ++(0,2) to ++(1,0) node[ocirc, scale=2]{};
+        \draw[thick] (GEN_VÝST) ++(0,-0.25) node[ocirc, scale=2]{} to ++(1,0) to ++(0,2) to ++(0.5,0) node[ocirc, scale=2]{};
+
+        \draw[thick] (CH1) ++(0,0.25) node[ocirc, scale=2]{} to ++(1,0);
+        \draw[thick] (CH1) ++(0,-0.25) node[ocirc, scale=2]{} to ++(1,0);
+
+        \draw[thick] (CH2) ++(0,0.25) node[ocirc, scale=2]{} to ++(1,0);
+        \draw[thick] (CH2) ++(0,-0.25) node[ocirc, scale=2]{} to ++(1,0);
+
+        \draw (GEN_VÝST) ++(-1,0) node[]{GEN výst};
+        \draw (CH1) ++(-1,0) node[align=right]{CH1 výst} ++(-3.15,0) node[align=left]{CH1 vst};
+        \draw (CH2) ++(-1,0) node[align=right]{CH2 výst};
+
+        \draw (11,-0.5) node[rmetershape, t=V, fill=white](V1){} ++(0,-2) node[rmetershape, t=V, fill=white](V2){};
+    \end{circuitikz}
+    \caption{Schéma zapojení pro měření mezikanálových přeslechů}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+        \draw[thick] (0,0) rectangle (3.5,-3) node[pos=0.5]{\Large \textbf{OSC}} ++(0,0.5) coordinate(GEN_VÝST);
+        \draw (7,-1.5) node[fourport](AMP){} node[ampshape]{};
+        \draw (10.5,-1.5) node[rmetershape, t=V](VOLTMETR){};
+
+        \draw[thick] (GEN_VÝST) ++(0,0.25) node[ocirc, scale=2]{} to ++(0.5,0) coordinate(Cport4) to (Cport4 |- AMP.port4) to (AMP.port4) node[ocirc, scale=2]{};
+        \draw[thick] (GEN_VÝST) ++(0,-0.25) node[ocirc, scale=2]{} to ++(1,0) coordinate(Cport1) to (Cport1 |- AMP.port1) to (AMP.port1) node[ocirc, scale=2]{};
+
+        \draw[thick] (AMP.port3) node[ocirc, scale=2]{} to ++(0.5,0) to ++(0,0.5) coordinate(A) to (A -| VOLTMETR.north) to (VOLTMETR.north);
+        \draw[thick] (AMP.port2) node[ocirc, scale=2]{} to ++(0.5,0) to ++(0,-0.5) coordinate(A) to (A -| VOLTMETR.south) to (VOLTMETR.south);
+
+        \draw (GEN_VÝST) ++(-1,0) node[]{GEN výst};
+        \draw (AMP.port4) ++(-0.8,-0.45) node[]{CH1 vst};
+        \draw (AMP.port3) ++(0.8,-0.5) node[]{CH1 výst};
+    \end{circuitikz}
+    \caption{Schéma zapojení pro měření dynamického rozsahu}
+\end{figure}
 
 \pagebreak
 
