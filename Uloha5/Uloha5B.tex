@@ -11,6 +11,7 @@
 \usepackage{multirow}
 \usepackage{tabularray}
 \usepackage{bold-extra}
+\usepackage{circuitikz}
 
 \begin{document}
 \begin{table}[H]
@@ -54,6 +55,49 @@
 \end{itemize}
 
 \section{Teoretický úvod}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+        \draw (0,0) to[european resistor, l=$R_0$] (2,0)
+        node[ocirc, scale=2]{} to[rmeter, t=mA$_1$, f=$I_1$] (4,0)
+        to[] (5,0) node[circ]{}
+        to[rmeter, t=V$_1$] (5,-2) node[circ]{}
+        to[] (2,-2) node[ocirc, scale=2]{}
+        to[] (0,-2)
+        to[dcvsource, name=zdroj] (0,0);
+        \ctikztunablearrow{1}{1.25}{-45}{zdroj}
+
+        \draw (5,0) to[] (6,0) node[ocirc, scale=2]{} to[] (7,0);
+        \draw (5,-2) to[] (6,-2) node[ocirc, scale=2]{} to[] (7,-2);
+
+        \draw (7,0.5) rectangle (10,-2.5) node[pos=0.5, align=center] {\Large Měřený\\\Large převodník};
+
+        \draw (10,0) to[] (11,0) node[ocirc, scale=2]{};
+        \draw (10,-2) to[] (11,-2) node[ocirc, scale=2]{};
+
+        \draw[{Straight Barb[scale=2]}-]  (11.5,0) to[] (12.5,0);
+        \draw (12.5,0) to[rmeter, t=V$_2$] (12.5,-2);
+        \draw[{Straight Barb[scale=2]}-]  (11.5,-2) to[] (12.5,-2);
+
+        \draw[{Straight Barb[scale=2]}-]  (13,0) to[] (14,0);
+        \draw (14,0) to[rmeter, t=mA$_2$] (14,-2);
+        \draw[{Straight Barb[scale=2]}-]  (13,-2) to[] (14,-2);
+        \draw (13.5,0.25) node[flowarrow]{$I_2$};
+
+        \draw[-{Straight Barb[angle'=60, scale=2]}]  (6,-0.25) to[] (6,-1.75);
+        \draw (6.3,-1) node[]{$U_1$};
+
+        \draw[-{Straight Barb[angle'=60, scale=2]}]  (11,-0.25) to[] (11,-1.75);
+        \draw (11.3,-1) node[]{$U_2$};
+
+        \draw (-1,-1) node[align=center]{Zdroj\\0-15\,V};
+        \draw (12,-2.4) node[]{buď};
+        \draw (13.5,-2.4) node[]{nebo};
+
+    \end{circuitikz}
+    \caption{Zapojení pro měření převodních charakteristik zesilovačů}
+\end{figure}
 
 \section{Výsledky měření}
 
