@@ -56,6 +56,31 @@
 
 \section{Teoretický úvod}
 
+V reálných zesilovačích dochází vlivem nelinearity zesilovače ke zkreslení, které nelze zcela potlačit.
+Kapacitní vazba mezi kanály zesilovače způsobuje vznik přeslechů mezi kanály.
+
+\begin{itemize}
+    \item \textbf{Rychlost přeběhu (Slew Rate)} - dynamická vlastnost zesilovače, která popisuje jak rychle zesilovač sleduje skokovou změnu vstupního signálu. K měření se využívá buzení obdélníkovým signálem.
+    \begin{equation*}
+        SR = \frac{\Delta u}{\Delta t}
+    \end{equation*}
+
+    \item \textbf{Celkové harmonické zkreslení (THD)} - Nelinearita zesilovače vede ke vzniku vyšších harmonických složek. Jejich úrovně jsou určitelné pomocí Fourierovy transformace. Parametr THD popisuje kolik procent z výstupního signálu tvoří součet vyšších harmonických složek.
+    \begin{equation*}
+        THD = \frac{\sqrt{U_2^2 + U_3^2 + ... + U_n^2}}{\sqrt{U_1^2 + U_2^2 + U_3^2 + ... + U_n^2}} \cdot 100 \, \%
+    \end{equation*}
+
+    \item \textbf{Mezikanálové přeslechy} - Jsou způsobeny kapacitní vazbou mezi signálovými cestami jednotlivých kanálů zesilovače. Rostou s rozdílem úrovní jednotlivých kanálů, s rostoucím kmitočtem signálu a také s klesající vzdáleností vodičů.
+    \begin{equation*}
+        L_p = 20 \cdot log \left( \frac{U_{v \acute{y} st_2}}{U_{v \acute{y} st_1}} \right)
+    \end{equation*}
+
+    \item \textbf{Dynamický rozsah (Signal to Noise Ratio)} - Rozdíl mezi nejvyšší a nejnižší úrovní signálu, které lze zpracovat při zachování kvality. Signál je zdola omezen šumem přístroje a shora napájecím napětím.
+    \begin{equation*}
+        SNR = 20 \cdot log \left( \frac{U_{v \acute{y} st_{max}}}{U_{v \acute{y} st_{min}}} \right)
+    \end{equation*}
+\end{itemize}
+
 \begin{figure}[H]
     \centering
     \begin{circuitikz}
@@ -119,6 +144,8 @@
     \caption{Schéma zapojení pro měření
     harmonického zkreslení}
 \end{figure}
+
+\pagebreak
 
 \begin{figure}[H]
     \centering
@@ -214,8 +241,8 @@
         400 000     & 0,242                                                                       & 0,10                           & -7,504                                                       & 147,0                                                       \\
         550 000     & 0,239                                                                       & 0,08                           & -9,615                                                       & 154,0                                                       \\
         600 000     & 0,238                                                                       & 0,08                           & -10,030                                                      & 152,0                                                       \\
-        700 000     & 0,235                                                                       & 0,07                           & -10,900                                                      & -                                                           \\
-        800 000     & 0,234                                                                       & 0,06                           & -11,398                                                      & -                                                           \\
+        700 000     & 0,235                                                                       & 0,07                           & -10,900                                                      & 160,0                                                           \\
+        800 000     & 0,234                                                                       & 0,06                           & -11,398                                                      & 176,0                                                           \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -353,6 +380,25 @@
 
 \section{Seznam použitých přístrojů}
 
+\begin{itemize}
+    \item Zesilovač Behringer Ultragain ProMic 2200
+    \item Číslicový osciloskop Agilent DSO-X 2002A, v.č. MY51452950
+    \item Laboratorní číslicový multimetr Agilent 34401A
+\end{itemize}
+
 \section{Závěr}
+
+Výrobcem udávané propustné pásmo zesilovače je 10\,Hz - 200\,kHz.
+Námi provedené měření tento údaj potvrzuje.
+
+Dále, úroveň přeslechů udávána výrobcem je -88\,dB.
+Námi naměřené a vypočtené hodnoty mezikanálových přeslechů se pohybovaly v rozsahu -99 až -83\,dB.
+Jedná se tedy o poměrně velké odchylky. Tyto odchylky jsou nejspíše způsobeny systematickými chybami během měření.
+
+Celkové harmonické zkreslení THD je dle udávané výrobcemje 0,011\,\% pro +4\,dBU při 1\,kHz.
+THD vypočtené z prvních deseti námi naměřených harmonických složek je rovno hodnotě 0,289\,\%.
+Opět jsme se pravděpodobně dopustili výrazných systematických chyb měření.
+Také hodnoty úrovně zobrazeny na osciloskopu pomocí funkce FFT nebyly úplně časově konzistentní.
+Výrobce také pravděpodobně údaj THD počítá z jiného počtu harmonických složek.
 
 \end{document}
