@@ -39,7 +39,8 @@ jobs:
             Uloha4/Uloha4.tex
             Uloha5/Uloha5A_AUDIO.tex
             Uloha5/Uloha5B.tex
-            Uloha6/Uloha6.tex
+            Uloha6/Uloha6A.tex
+            Uloha6/Uloha6B.tex
             Uloha7/Uloha7.tex
             Uloha8/Uloha8.tex
             Uloha9/Uloha9.tex
@@ -58,7 +59,8 @@ jobs:
           mv Uloha4/Uloha4.pdf ./public/
           mv Uloha5/Uloha5A_AUDIO.pdf ./public/
           mv Uloha5/Uloha5B.pdf ./public/
-          mv Uloha6/Uloha6.pdf ./public/
+          mv Uloha6/Uloha6A.pdf ./public/
+          mv Uloha6/Uloha6B.pdf ./public/
           mv Uloha7/Uloha7.pdf ./public/
           mv Uloha8/Uloha8.pdf ./public/
           mv Uloha9/Uloha9.pdf ./public/
@@ -77,7 +79,8 @@ jobs:
               <p><a href="./Uloha4.pdf">Úloha č.4: Měření napětí neharmonických signálů</a></p>
               <p><a href="./Uloha5A_AUDIO.pdf">Úloha č.5A AUDIO: Automatizované měření vlastností audio zesilovače</a></p>
               <p><a href="./Uloha5B.pdf">Úloha č.5B: Měřicí převodníky s operačním zesilovačem</a></p>
-              <p><a href="./Uloha6.pdf">Úloha č.6: </a></p>
+              <p><a href="./Uloha6A.pdf">Úloha č.6A: Princip vzorkování a Č/A převodníku</a></p>
+              <p><a href="./Uloha6A.pdf">Úloha č.6B: Princip A/Č převodníku s dvojitou integrací</a></p>
               <p><a href="./Uloha7.pdf">Úloha č.7: </a></p>
               <p><a href="./Uloha8.pdf">Úloha č.8: </a></p>
               <p><a href="./Uloha9.pdf">Úloha č.9: </a></p>
