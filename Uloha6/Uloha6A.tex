@@ -12,6 +12,7 @@
 \usepackage{tabularray}
 \usepackage{bold-extra}
 \usepackage{circuitikz}
+\usepackage{latexsym}
 
 \begin{document}
 \begin{table}[H]
@@ -60,6 +61,60 @@
 \end{itemize}
 
 \section{Teoretický úvod}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+        \draw (0,0) to[twoportsplit, t1=$\sim$, t2=$\sqcap\!\sqcup$, l_=Tvarovač] ++(1.5,0)
+        node[circ, label=below:$f$](f){} to[twoport, t={\parbox{1cm}{\centering PLL $16 \cdot f$}}, l_=Oscilátor] ++(1.5,0)
+        node[circ, label=below:\tiny16\normalsize $f$](16f){} to[twoport, l_=Čítač, t={\parbox{1cm}{\centering výběr 1-16}}] ++(1.5,0)
+        node[ocirc, scale=1.5]{} ++(0,0.3) node[ocirc, scale=1.5](A){};
+        \draw [line width=2] (A) to ++(0.3,0) coordinate(B);
+        \draw (B) ++(0,-0.3) node[ocirc, scale=1.5]{} ++(0,-0.3) node[ocirc, scale=1.5](C){} to ++(0.3,0) ++(-0.6,0) node[ocirc, scale=1.5](D){};
+        \draw (A) to ++(0,0.5) coordinate(X) to (X -| 16f) to (16f);
+        \draw (B) node[ocirc, scale=1.5]{} to ++(0.3,0) to ++(0,-0.6) node[circ]{} to ++(0,-2.5) to ++(-2.85,0) to ++(0,0.7);
+        \draw (0,-2) coordinate(SHin) node[circ]{} to[amp, t=S/H, fill=white, name=vzAMP] ++(4.5,0) coordinate(SHout);
+        \draw (SHin) to (0,0);
+        \draw [line width=1.2] (-0.75,0) node[ocirc, scale=2](GEN_IN){} to (GEN_IN |- SHin) node[ocirc, scale=1.5](Ux+){} to ++(0,-1.5) node[ocirc, scale=1.5](Ux-){}
+        to ++(0,-0.5) to ++(7,0) coordinate(X) to (X |- Ux-) node[ocirc, scale=1.5](Uv-){} to (X |- Ux+) node[ocirc, scale=1.5](Uv+){}
+        to ++(0,0.5) node[ocirc, scale=1.5](UvOSC){} to ++(0,0.5) node[ocirc, scale=1.5](Us){} to ++(0,0.5) node[ocirc, scale=1.5](SYN){}
+        to ++(0,1.8) coordinate(X) to (X -| GEN_IN) to (GEN_IN);
+        \draw (X -| GEN_IN) ++(1,-0.3) node[]{Přípravek};
+        \draw (D) to[push button, l_=Ruč. vz.] ++(0,-2) coordinate(X) to (X |- Ux-) node[circ]{};
+        \draw (Ux-) to (Uv-);
+        \draw (Ux+) to (SHin);
+        \draw (Ux-) ++(0.4,0) node[circ]{} to ++(0,3.15) to (GEN_IN);
+        \draw (SHout) to (Uv+);
+        \draw (SYN) to ++(-0.6,0) to ++(0,1.5) coordinate(X) to (X -| f) to (f);
+
+        \draw (8,0) node[ocirc, scale=1.5, label=\scriptsize Gen](GENout){} ++(1,0) node[ocirc, scale=1.5, label=\tiny CH1](CH1){} ++(0.5,0) node[ocirc, scale=1.5, label=\tiny CH2](CH2){} ++(0.5,0) node[ocirc, scale=1.5, label=\tiny CH3](CH3){} ++(0.5,0) node[ocirc, scale=1.5, label=\tiny CH4](CH4){};
+        \draw [line width=1.2] (GENout) ++(-0.3,-0.2) to ++(3.1,0) to ++(0,1.85) to ++(-3.1,0) to ++(0,-1.85);
+        \draw (GENout) ++(-0.15,0.5) to ++(1.5,0) to ++(0,1) to ++(-1.5,0) to ++(0,-1);
+        \draw (CH3) ++(0,1) node[]{OSC};
+
+        \draw (CH2) to (CH2 |- Us) to (Us);
+        \draw (CH3) to (CH3 |- UvOSC) to (UvOSC);
+        \draw (GENout) to ++(0,-0.5) node[circ]{};
+        \draw (CH1) to ++(0,-0.5) to ++(-2,0) to ++(0,2.2) to ++(-8.5,0) coordinate(X) to (X |- GEN_IN) to (GEN_IN);
+        \draw (GEN_IN) ++(-0.4,0.3) node[]{Gen};
+
+        \draw (Uv+) to ++(1,0) to[rmeter, t={V=}] ++(0,-1.5) to (Uv-);
+        \draw (Ux+) to ++(-1,0) to[rmeter, t={V$\sim$}] ++(0,-1.5) to (Ux-);
+
+        \draw (SYN) ++(0.3,0.2) node[]{\tiny SYN};
+        \draw (Us) ++(0.3,0.2) node[]{\small u$_s$};
+        \draw (UvOSC) ++(0.3,0.2) node[]{\small u$_v$};
+        \draw (Uv+) ++(0.3,0.2) node[]{\small u$_v$};
+        \draw (Ux+) ++(-0.3,0.2) node[]{\small u$_x$};
+
+        \draw (Us) to ++(-1.15,0) node[circ]{};
+        \draw (UvOSC) to ++(-0.6,0) to ++(0,-0.5) node[circ]{};
+
+        \draw[-{Straight Barb[angle'=60, scale=2]}] (Ux+) ++(-0.3,-0.2) to ++(0,-1);
+        \draw[-{Straight Barb[angle'=60, scale=2]}] (Uv+) ++(0.3,-0.2) to ++(0,-1);
+    \end{circuitikz}
+    \caption{Zapojení pro ověření funkce vzorkovače napětí}
+\end{figure}
 
 \section{Výsledky měření}
 
@@ -126,9 +181,58 @@
 
 \subsection{Grafy}
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{grafy/graf1.pdf}
+    \caption{Převodní charakteristika Č/A převodníku}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{grafy/graf2.pdf}
+    \caption{Průběh chyby v závislosti na vstupním slově} 
+\end{figure}
+
 \subsection{Příklady výpočtu}
 
+\begin{enumerate}
+    \item Efektivní hodnota vzorkovaného signálu
+    \begin{multline*}
+        U' = \textcolor{teal}{\sqrt{\frac{1}{N} \sum_{k=0}^{n-1} U_k^2}} = \sqrt{\frac{1}{16} \cdot \left( 1,464 + 3,803 + ... + 0,084 \right)} = \underline{\underline{1,744\,V}} \hfill
+    \end{multline*}
+
+    \item Chyba zesílení
+    \begin{multline*}
+        \Delta_K = \textcolor{teal}{U_{255} - \Delta_{ofs} - U_{ref} \frac{255}{256}} = U_{255} - \Delta_{ofs} - U_{ref} \frac{255}{256} = 4,954\,V - (-5,003\,V) - 5\,V \frac{255}{256} = \underline{\underline{4,976\,V}} \hfill
+    \end{multline*}
+
+    \item Napětí odpovídající ideální převodní charakteristice
+    \begin{multline*}
+        U_a = \textcolor{teal}{U_{ref} \cdot \frac{N}{256}} = 5\,V \cdot \frac{128}{256} = \underline{\underline{2,5\,V}} \hfill
+    \end{multline*}
+
+    \item Napětí odpovídající náhradní přímkové charakteristice
+    \begin{multline*}
+        U_{NP} = \textcolor{teal}{\frac{U_{255} - \Delta_{ofs}}{255} \cdot N + \Delta_{ofs}} = \frac{4,954\,V - (-5,003)}{255} \cdot 128 + (-5,003) = -4,976 \cdot 10^{-3}\,V = \underline{\underline{-4,976\,mV}} \hfill
+    \end{multline*}
+
+    \item Odchylka měřeného napětí
+    \begin{multline*}
+        \Delta_U = \textcolor{teal}{U_{m \check{e} \check{r}} - U_{NP}} = 0,002\,V - (-0,005\,V) = \underline{\underline{0,007\,V}} \hfill
+    \end{multline*}
+
+    \item Maximální chyba linearity
+    \begin{multline*}
+        \Delta_L = \textcolor{teal}{max \left\{\Delta_U\right\}} = \underline{\underline{0,007\,V}} \hfill
+    \end{multline*}
+\end{enumerate}
+
 \section{Seznam použitých přístrojů}
+
+\begin{itemize}
+    \item Laboratorní číslicový multimetr Keysight 34450A, v.č. MY58180038
+    \item Číslicový osciloskop Agilent DSO-X 2004A, v.č. MY50513106
+\end{itemize}
 
 \section{Závěr}
 
