@@ -12,6 +12,7 @@
 \usepackage{tabularray}
 \usepackage{bold-extra}
 \usepackage{circuitikz}
+\usetikzlibrary{calc}
 
 \begin{document}
 \begin{table}[H]
@@ -53,6 +54,36 @@
 \end{itemize}
 
 \section{Teoretický úvod}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+        % Referenční napětí
+        \draw (0,0) node[draw, rectangle, line width=1, align=center, minimum height=1cm, inner xsep=7.5](refNap){Referenční\\napětí}
+        % Dělič
+        (refNap.east) to node[pos=0.5, circ](uzel1){} ++(0.5,0) node[draw, rectangle, line width=1, align=center, anchor=west, minimum height=1cm, inner xsep=7.5](delic){Dělič}
+        % Sumátor
+        (delic.east) to node[pos=0.25, circ](uzel2){} ++(2.5,0) ++(0,-0.25) node[draw, rectangle, line width=1, align=center, anchor=west, minimum height=1cm, inner xsep=7.5](sumator){Sumátor}
+        % ICL7135
+        (sumator.east) to node[pos=0.6, label={[label distance=-5]below:$U_X$}]{} ++(2,0) ++(0,0.25) node[draw, rectangle, line width=1, align=center, anchor=west, minimum height=2cm, inner xsep=7.5](ICL){ICL7135} (ICL.west) ++(0,0.25) coordinate(ICLa)
+        (uzel1) to ++(0,0.75) coordinate(X) to (X -| sumator.east) to ++(0.5,0) coordinate(X) to (X |- ICLa) to node[pos=0.5, label={[label distance=-5]above:$U_{ref}$}]{} (ICLa)
+        % Číslicový voltmetr
+        (uzel2) to node[pos=0.9, label={[label distance=-5]right:$U_X$}]{} ++(0,-2) node[draw, rectangle, anchor=north, align=center, inner xsep=7.5, line width=1](voltmetr){Číslicový\\voltmetr}
+        % Displej
+        (ICL.east) ++(0,0.6) to ++(1.5,0) node[draw, rectangle, anchor=west, line width=1, minimum height=1cm, inner xsep=7.5](displej){Displej}
+        % Osciloskop
+        (ICL.east) ++(0,-0.6) to node[pos=0.6, label={[label distance=-5]above:$U_{INT}$}]{} ++(1.5,0) node[draw, rectangle, anchor=west, line width=1, minimum height=1cm, inner xsep=7.5](osciloskop){Osciloskop}
+        % Generátor
+        (ICL.south) to node[pos=0.75, label={[label distance=-5]right:$f_{INT}$}]{} ++(0,-1) coordinate(X) to (X -| osciloskop.west) ++(0,-0.25)
+        node[draw, rectangle, anchor=west, minimum height=1cm, line width=1, inner xsep=7.5](generator){Generátor}
+        (sumator.west) ++(0,-0.25) to ++(-0.5,0) coordinate(X) to (X |- generator.west) to node[pos=0, label={[label distance=-5]right:$f_{ru \check{s}}$}]{} ++(0,-0.25) coordinate(X) to (X -| generator.west)
+        ;
+        % Obdélník s názvem
+        \draw [line width=1.2] (-1.3,1.5) rectangle (11.35,-1.2) node[pos=0.5](X){}
+        (X) ++(0,1) node[]{\textbf{Převodník s dvojitou integrací}};
+    \end{circuitikz}
+    \caption{Blokové schéma zapojení s přípravkem převodníku s dvojitou integrací}
+\end{figure}
 
 \section{Výsledky měření}
 

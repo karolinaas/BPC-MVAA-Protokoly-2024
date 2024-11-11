@@ -62,6 +62,39 @@
 
 \section{Teoretický úvod}
 
+Vzorkovače slouží jako analogová paměť vstupních hodnot signálů a jsou používány zejména v neintegrujících A/Č převodnících.
+Jejich funkcí je kvantizace (diskretizace v čase) signálu.
+Použitím vzorkování lze určit okamžitou hodnotu spojitého signálu v pravidelném intervalu.
+Obvodový prvek odpovědný za paměť je kondenzátor.
+Obvykle je zapojen se dvěma operačními zesilovači - jeden urychluje nabíjení kondenzátoru a druhý brání jeho vybíjení.
+Pro vzorkovač se běžně používá označení S/H (z anglického Sample and Hold).
+Č/A převodníkem ozančujeme zařízení, které převádí vstupní číslicovou hodnotu D reprezentovanou číslem N na výstupní spojité napětí.
+\begin{equation*}
+    U_a = D \cdot U_{ref} = \frac{N}{2^n} \cdot U_{ref}
+\end{equation*}
+
+Vstupní slovo pro osmibitový převodník je definováno jako:
+\begin{equation*}
+    D = b_7 \cdot 2^{-1} + b_6 \cdot 2^{-2} + ... + b_0 \cdot 2^{-8}
+\end{equation*}
+
+Hodnotu maximálního napětí pro osmibitový Č/A převodník lze určit pomocí vztahu:
+\begin{equation*}
+    U_{a_{max}} = U_{ref} \cdot \left(\frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} + \frac{1}{32} + \frac{1}{64} + \frac{1}{128} + \frac{1}{256}\right) = U_{ref} \cdot \frac{255}{256}
+\end{equation*}
+
+Rozlišovací schopnost Č/A převodníku je typicky rovna 1 LSB.
+Rozlišovací schopnost osmibitového Č/A převodníku je cca. 0,39\,\%.
+Nejistota Č/A pŕevodníku je typicky rovna polovině jeho rozlišovací schopnosti, tedy LSB/2.
+
+Převodník DAC08 použitý v této úloze je postaven na bázi integrovaného obvodu WSH 560.
+Zdroj referenčního napětí má hodnotu 10,0\,V.
+Číslicová vstup pŘevodníku je realizován páčkovými spínači.
+Rozsah výstupu lze nastavit přepínačem rozsahu.
+
+Pro správnou funkci vzorkování je potřeba, aby vzorkovací kmitočet byl roven minimálně dvojnásobku hodnoty kmitočtu vzorkovaného spektra.
+
+
 \begin{figure}[H]
     \centering
     \begin{circuitikz}
@@ -114,6 +147,31 @@
         \draw[-{Straight Barb[angle'=60, scale=2]}] (Uv+) ++(0.3,-0.2) to ++(0,-1);
     \end{circuitikz}
     \caption{Zapojení pro ověření funkce vzorkovače napětí}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}
+        \draw[-{Straight Barb[angle'=60, scale=2]}] (0,0) to ++(2.5,0);
+        \draw (1.25,0.25) node[]{Vstupní slovo};
+
+        \draw [{|[scale=2, line width=1]}-] (2.5,0.5) to ++(0.5,0) coordinate(A);
+        \draw [{|[scale=2, line width=1]}-] (2.5,-0.5) to ++(0.5,0) coordinate(B);
+
+        \begin{scope}
+            \ctikzset{bipoles/cuteswitch/thickness=0.25}
+
+            \draw (A) to[cute open switch, name=S1, l=$2^7$] ++(1,0) to ++(0.5,0) coordinate(A);
+            \draw (B) to[cute open switch, name=S2, l_=$2^0$] ++(1,0) to ++(0.5,0) coordinate(B);
+            \draw [densely dashed] (S1.mid) to (S2.mid);
+        \end{scope}
+
+        \draw [thick] (A) ++(0,0.5) rectangle ++(2.5,-2) node[pos=0.5, align=center]{8bitový\\D/A\\převodník} coordinate(A);
+
+        \draw (A) ++(0,1) to ++(1,0) coordinate(A);
+        \draw [thick] (A) ++(0,0.5) rectangle ++(2,-1) node[pos=0.5]{Voltmetr};
+    \end{circuitikz}
+    \caption{Blokové schéma pro měření převodníku Č/A}
 \end{figure}
 
 \section{Výsledky měření}
@@ -227,6 +285,14 @@
     \end{multline*}
 \end{enumerate}
 
+\subsection{Snímky obrazovky osciloskopu}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{osc_6A_1.png}
+    \caption{Snímek obrazovky osciloskopu}
+\end{figure}
+
 \section{Seznam použitých přístrojů}
 
 \begin{itemize}
@@ -235,5 +301,13 @@
 \end{itemize}
 
 \section{Závěr}
+
+Úkolem námi provedeného měření bylo experimentálně určit převodní charakteristiku Č/A převodníku a dále určit i jeho chabu nuly, chybu zesílení a také maximální chybu linearity.
+Dále bylo potřeba získanou převodní charakteristiku také graficky znázornit.
+
+Námi vypočtená efektivní hodnota napětí zrekonstruovaného signálu $U' = 1,744\,$V je téměř totožná s efektivní hodnotou napětí původního signálu $U_X = 1,7483\,$V.
+Také námi určená maximální chyba linearity $\Delta_L = 0,007\,$V při hodnotě $N = 128$ je velice malá.
+Chyba v nule je však poměrně velká.
+To je způsobeno tím, že naměřená charakteristika je stejnosměrně posunuta do záporných hodnot.
 
 \end{document}
