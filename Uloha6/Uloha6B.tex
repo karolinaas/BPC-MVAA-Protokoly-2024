@@ -12,7 +12,9 @@
 \usepackage{tabularray}
 \usepackage{bold-extra}
 \usepackage{circuitikz}
-\usetikzlibrary{calc}
+\usepackage{caption}
+\usepackage{subcaption}
+
 
 \begin{document}
 \begin{table}[H]
@@ -54,6 +56,16 @@
 \end{itemize}
 
 \section{Teoretický úvod}
+
+Ve všech číslicových měřících přístrojích je použit A/Č převodník, který převádí vstupní spojitý signál na časově diskrétní číselnou hodnotu, která je zobrazena na displeji zařízení.
+Hodnota se převádí použitím kvantizace (diskretizace v čase).
+
+V měřících přístrojích se nejčastěji střetáváme s převodníky s dvojitou integrací, který má výhodu spočívající v potlačení rušení z elektrické sítě.
+Je používán jak ve voltmetrech t ak i v multimetrech.
+Jeho elektrické vlastnosti dokáží také eliminovat časové nestability obvodových prvků R a C a také kmitočtu oscilátoru.
+
+V přípravku v této úloze je použit integrovaný obvod ICL7135, který je řízen hodinovým signálem z laboratorního generátoru.
+Bez tohoto hodinového signálu není schopen funkce.
 
 \begin{figure}[H]
     \centering
@@ -98,7 +110,7 @@
         $U_X$  & [V]  & 0,1   & 0,2   & 0,3   & 0,4   & 0,5   & 0,6   & 0,7   & 0,8   & 0,9   \\
         \cmidrule(rl){1-11}
         $N$   & [-]  & 1000  & 2003  & 3005  & 4007  & 5008  & 6010  & 7012  & 8013  & 9015  \\
-        $N_{id}$ & [-]  & 1000  & 2000  & 3000  & 4000  & 5000  & 6000  & 7000  & 8000  & 9000  \\
+        $N_{ID}$ & [-]  & 1000  & 2000  & 3000  & 4000  & 5000  & 6000  & 7000  & 8000  & 9000  \\
         $\delta_N$  & [\%] & 0,000 & 0,150 & 0,167 & 0,175 & 0,160 & 0,167 & 0,171 & 0,163 & 0,167 \\
         \bottomrule
     \end{tabular}
@@ -110,7 +122,7 @@
     \caption{Převodník s dvojitou integrací}
     \begin{tabular}{cccc}
         \toprule
-        $U_X$  & $T_1$  & $T_2$ & $N_{id}$  \\
+        $U_X$  & $T_1$  & $T_2$ & $N_{ID}$  \\
         \cmidrule(rl){1-1}
         \cmidrule(rl){2-2}
         \cmidrule(rl){3-3}
@@ -124,12 +136,94 @@
     \end{tabular}
 \end{table}
 
-\subsection{Grafy}
+\subsection{Snímky obrazovky osciloskopu}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{osc_6B_1.png}
+        \caption{$U_X = 0,9\,$V}
+    \end{subfigure}
+    \hfil
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{osc_6B_2.png}
+        \caption{$U_X = 0,6\,$V}
+    \end{subfigure}
+
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{osc_6B_3.png}
+        \caption{$U_X = 0,3\,$V}
+    \end{subfigure}
+    \caption{Průběhy výstupního napětí generátoru pro jednotlivá vstupní napětí $U_X$}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{osc_6B_4.png}
+        \caption{bez rušení}
+    \end{subfigure}
+    \hfil
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{osc_6B_5.png}
+        \caption{$f_{ru \check{s}} = 30\,$Hz}
+    \end{subfigure}
+
+    \begin{subfigure}{0.49\textwidth}
+        \includegraphics[width=\textwidth]{osc_6B_6.png}
+        \caption{$f_{ru \check{s}} = 50\,$Hz}
+    \end{subfigure}
+    \caption{Vliv rušení na průběh výstupního napětí generátoru}
+\end{figure}
 
 \subsection{Příklady výpočtu}
 
+\begin{enumerate}
+    \item Ideální stav čítače po ukončení převodu
+    \begin{multline*}
+        N_{ID} = \textcolor{teal}{N_C \cdot \frac{U_X}{U_{ref}}} = 10\,000 \cdot \frac{0,2\,V}{1\,V} = \underline{\underline{2\,000}} \hfill
+    \end{multline*}
+    \item Relativní chyba naměřené hodnoty čítače převodníku
+    \begin{multline*}
+        \delta_N = \textcolor{teal}{\frac{N - N_{ID}}{N_{ID}} \cdot 100\,\%} = \frac{2\,003 - 2\,000}{2\,000} \cdot 100\,\% = \underline{\underline{0,15\,\%}} \hfill
+    \end{multline*}
+    \item Ideální stav čítače po ukončení převodu ze změřených časů $T_1$ a $T_2$
+    \begin{multline*}
+        N_{ID} = \textcolor{teal}{N_C \cdot \frac{T_2}{T_1}} = 10\,000 \cdot \frac{30\cdot10^{-3}\,s}{100\cdot10^{-3}\,s} = \underline{\underline{3\,000}} \hfill
+    \end{multline*}
+    \item Změna údaje displeje vlivem sériového rušení
+    \begin{multline*}
+        \Delta N =  4076 - 3000 = \underline{\underline{1076}} \hfill
+    \end{multline*}
+    \item Ideální potlačení sériového rušivého signálu
+    \begin{multline*}
+        SMR_{teor} = \textcolor{teal}{20 \cdot log \left(\frac{\pi \cdot T_1 \cdot f_{ru \check{s}}}{\left|sin\left(\pi \cdot T_1 \cdot f_{ru \check{s}}\right)\right|}\right)} = 20 \cdot log \left(\frac{\pi \cdot 100\cdot10^{-3}\,s \cdot 12,5\,Hz}{\left|sin\left(\pi \cdot 100\cdot10^{-3}\,s \cdot 12,5\,Hz\right)\right|}\right) = \underline{\underline{14,89\,dB}} \hfill
+    \end{multline*}
+    \item Naměřené potlačení sériového rušivého signálu
+    \begin{multline*}
+        SMR_{mer} = \textcolor{teal}{20 \cdot log \left(\cfrac{U_{ru \check{s}}}{\left|\Delta N\right| \cdot \cfrac{U_{ref}}{N_C}}\right)} = 20 \cdot log \left(\cfrac{0,5\,V}{\left|1\,076\right| \cdot \cfrac{1\,V}{10\,000}}\right) = \underline{\underline{13,34\,dB}} \hfill
+    \end{multline*}
+\end{enumerate}
+
 \section{Seznam použitých přístrojů}
 
+\begin{itemize}
+    \item Číslicový osciloskop Agilent DSO-X 3014A, v.č. MY51290304
+    \item Číslicový laboratorní multimetr Metra M1T390, v.č. 40004281793
+    \item Číslicový laboratorní signálový generátor Siglent SDG 2042X, v.č. SDG2XCAC2R0604
+\end{itemize}
+
 \section{Závěr}
+
+Cílem tohoto námi provedeného měření bylo určit převodní charakteristiku převodníku a taktéž ověřit jeho potlačení rušivého střídavého signálu.
+
+Relativní chyby naměřených hodnot $\delta_N$ jsou relativně malé, nejvyšší znich je 0,175\,\% při $U_X = 0,4\,$V.
+Tyto odchylky jsou nejpravděpodobněji způsobeny nedokonalostí v linearitě měřeného převodníku.
+
+Při měření hodnoty čítače N na fázi dosáhl převodník nejvyššího rozdílu $\Delta N = 1076$.
+Ideální potlačení sériového rušivého signálu bylo námi vypočteno na hodnotu 14,89\,dB.
+Naměřené potlačení sériového rušivého signálu bylo určeno na hodnotu 13,36\,dB.
+
+Maximální potlačení síťového rušivého napětí by mělo nastat, pokud dobu integrace $T_1$ nastavíme na hodnotu periody rušivého napětí 20 ms, nebo násobku této hodnoty. Časový Integrál bude při násobcích této hodnoty vždy nulový.
 
 \end{document}
