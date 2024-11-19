@@ -41,7 +41,8 @@ jobs:
             Uloha5/Uloha5B.tex
             Uloha6/Uloha6A.tex
             Uloha6/Uloha6B.tex
-            Uloha7/Uloha7.tex
+            Uloha7/Uloha7A.tex
+            Uloha7/Uloha7B.tex
             Uloha8/Uloha8.tex
             Uloha9/Uloha9.tex
             Uloha10/Uloha10.tex
@@ -61,7 +62,8 @@ jobs:
           mv Uloha5/Uloha5B.pdf ./public/
           mv Uloha6/Uloha6A.pdf ./public/
           mv Uloha6/Uloha6B.pdf ./public/
-          mv Uloha7/Uloha7.pdf ./public/
+          mv Uloha7/Uloha7A.pdf ./public/
+          mv Uloha7/Uloha7B.pdf ./public/
           mv Uloha8/Uloha8.pdf ./public/
           mv Uloha9/Uloha9.pdf ./public/
           mv Uloha10/Uloha10.pdf ./public/
@@ -81,7 +83,8 @@ jobs:
               <p><a href="./Uloha5B.pdf">Úloha č.5B: Měřicí převodníky s operačním zesilovačem</a></p>
               <p><a href="./Uloha6A.pdf">Úloha č.6A: Princip vzorkování a Č/A převodníku</a></p>
               <p><a href="./Uloha6B.pdf">Úloha č.6B: Princip A/Č převodníku s dvojitou integrací</a></p>
-              <p><a href="./Uloha7.pdf">Úloha č.7: </a></p>
+              <p><a href="./Uloha7A.pdf">Úloha č.7A: Měření statické hysterezní smyčky</a></p>
+              <p><a href="./Uloha7B.pdf">Úloha č.7B: Měření přeslechů</a></p>
               <p><a href="./Uloha8.pdf">Úloha č.8: </a></p>
               <p><a href="./Uloha9.pdf">Úloha č.9: </a></p>
               <p><a href="./Uloha10.pdf">Úloha č.10: </a></p>
