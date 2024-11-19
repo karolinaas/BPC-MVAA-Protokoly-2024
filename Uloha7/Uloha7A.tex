@@ -58,6 +58,16 @@
 
 \section{Teoretický úvod}
 
+Hysterezní charakteristika je graf závislosti magnetické indukce $B$ na na intenzitě magnetického pole $H$.
+Stejnosměrné magnetování nastává v případě, kdy se intenzita magnetického pole a magnetická indukce v materiálu mění tak pomalu, že se neuplatňují vlivy rušivých vířivých proudů.
+Další zpomalování změny intenzity magnetického pole a magnetické indukce již nemá vliv na tvar měřené charakteristiky.
+
+\begin{itemize}
+    \item \textbf{Křivka prvotní magnetizace} - je důležité dokonalé odmagnetování, popisuje magnetizaci vzorku pouze jedním směrem.
+    \item \textbf{Statická maximální hysterezní smyčka} - je to závislost popisující pomalé magnetizační cykly. Průsečík s osou magnetické indukce udává hodnoty remanentní indukce $B_\text{r}$. Průsečík s osou intenzity magnetického pole udává hodnotu koercivní síly $H_\text{c}$. Maximální hysterezní smyčka je taková, kde se při zvyšování hodnoty $H_\text{m}$ již nezvyšují polohy průsečíků $B_\text{r}$ a $H_\text{c}$. Hysterezní ztráty v materiálu jsou úměrné velikosti plochy této smyčky.
+    \item \textbf{Magneticky měkký/tvrdý materiál} - udává šířka hysterezní smyčky
+\end{itemize}
+
 \begin{figure}[H]
     \centering
     \begin{circuitikz}[decoration={coil, segment length=0.7mm, amplitude=2mm}]
@@ -187,6 +197,27 @@
 
 \section{Seznam použitých přístrojů}
 
+\begin{itemize}
+    \item Měřící ústředna Agilent 34970A, v.č. MY44004873
+    \item Počítač vybaven programem HP VEE
+    \item Elektronický fluxmetr
+    \item Zdroj magnetizačního proudu
+    \item Laboratorní přípravek s měřeným jádrem
+\end{itemize}
+
 \section{Závěr}
+
+Úkolem tohoto námi provedeného měření bylo změřit statickou hysterezní smyčku předloženého feromagnetického toroidního jádra pomocí automatizovaného měřícího pracoviště.
+
+Naměřená hysterezní smyčka námi měřeného feromagnetického sonapremového toroidního jádra je uvedena v grafu výše.
+Výsledné hodnoty tohoto měření byly uvedeny do výše uvedené přehledné tabulky.
+
+Z námi naměřených hodnot a charakteristik vyplývá, že námi měřený vzorek je zkonstruován z magneticky měkkého materiálu.
+Magneticky tvrdé materiály mají totiž mnohonásobně vyšší velikosti hodnot koercivní síly $H_\text{c}$.
+
+Námi měřený vzorek projevoval vlastnosti snadné magnetizace a demagnetizace, což je dalším jevem, že se jedná o magneticky měkký materiál.
+Měření magneticky tvrdého materiálu by trvalo násobně déle, jelikož domény v krystalické mřížce magneticky tvrdých materiálů mají tendenci se nevracet do svých původních stavů.
+
+Značný vliv na nepřesnost námi provedeného měření mohlo mít zejména odečítání a odhadování hodnot z naměřené hysterezní smyčky.
 
 \end{document}
