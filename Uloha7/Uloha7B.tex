@@ -7,7 +7,7 @@
 \usepackage[margin=1.5cm]{geometry}
 \usepackage{booktabs}
 \usepackage{amsmath}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{multirow}
 \usepackage{tabularray}
 \usepackage{bold-extra}
@@ -15,6 +15,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage[utf8]{inputenc}
+\usepackage{array}
 
 \begin{document}
 \begin{table}[H]
@@ -60,6 +61,86 @@
 \section{Výsledky měření}
 
 \subsection{Tabulky}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Měření přeslechů na blízkém konci (NEXT) souběžného vedení}
+    \begin{tabular}{r>{\color{BrickRed}}c>{\color{BrickRed}}c>{\color{BrickRed}}c>{\color{OliveGreen}}c>{\color{OliveGreen}}c>{\color{OliveGreen}}c>{\color{BlueViolet}}c>{\color{BlueViolet}}c>{\color{BlueViolet}}c}
+        \toprule
+        \multirow{2}{*}{} & \multicolumn{3}{>{\color{BrickRed}}c}{\textit{Reproduktorová dvojlinka}} & \multicolumn{3}{>{\color{OliveGreen}}c}{\textit{UTP kat. 6}}         & \multicolumn{3}{>{\color{BlueViolet}}c}{\textit{S-STP kat. 7}}               \\
+                        & \multicolumn{3}{>{\color{BrickRed}}c}{Dvojlinka}                & \multicolumn{3}{>{\color{OliveGreen}}c}{Kroucená dvojlinka} & \multicolumn{3}{>{\color{BlueViolet}}c}{Stíněná kroucená dvojlinka} \\
+        \cmidrule(rl){2-4}
+        \cmidrule(rl){5-7}
+        \cmidrule(rl){8-10}
+        \multicolumn{1}{c}{$f$}                 & $U_\text{in}$          & $U_\text{out}$          & $U_\text{NEXT}$         & $U_\text{in}$          & $U_\text{out}$          & $U_\text{NEXT}$       & $U_\text{in}$          & $U_\text{out}$          & $U_\text{NEXT}$         \\
+        \cmidrule(rl){1-1}
+        \cmidrule(rl){2-2}
+        \cmidrule(rl){3-3}
+        \cmidrule(rl){4-4}
+        \cmidrule(rl){5-5}
+        \cmidrule(rl){6-6}
+        \cmidrule(rl){7-7}
+        \cmidrule(rl){8-8}
+        \cmidrule(rl){9-9}
+        \cmidrule(rl){10-10}
+        \multicolumn{1}{c}{MHz}               & V            & V             & mV            & V          & V           & mV          & V             & V              & mV            \\
+        \cmidrule(rl){1-10}
+        0,01              & 2            & 2,01          & 2,93          & 2          & 1,95        & 2,24        & 2             & 1,95           & 3,31          \\
+        0,02              & 2            & 2,01          & 4,82          & 2          & 1,95        & 3,12        & 2             & 1,95           & 3,11          \\
+        0,05              & 2            & 2,01          & 10,6          & 2          & 1,95        & 6,60        & 2             & 1,94           & 3,06          \\
+        0,07              & 2            & 2,01          & 15,5          & 2          & 1,94        & 9,00        & 2             & 1,93           & 3,04          \\
+        0,1               & 2            & 2,03          & 21,6          & 2          & 1,93        & 12,7        & 2             & 1,93           & 2,93          \\
+        0,2               & 2            & 2,06          & 42,5          & 2          & 1,92        & 25,6        & 2             & 1,90           & 2,65          \\
+        0,5               & 2            & 2,29          & 127           & 2          & 1,90        & 68,0        & 2             & 1,86           & 2,15          \\
+        0,7               & 2            & 2,63          & 234           & 2          & 1,90        & 102         & 2             & 1,86           & 2,00          \\
+        1                 & 2            & 3,81          & 620           & 2          & 1,88        & 160         & 2             & 1,85           & 1,88          \\
+        5                 & 2            & 4,50          & 930           & 2          & 1,83        & 16,5        & 2             & 1,75           & 2,01          \\
+        7                 & 2            & 1,56          & 126           & 2          & 1,89        & 670         & 2             & 1,96           & 2,71          \\
+        10                & 2            & 1,90          & 360           & 2          & 1,77        & 44,0        & 2             & 1,53           & 2,15          \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Vypočtené hodnoty $A$, $NEXT$ a $ACR_\text{N}$ pro jednotlivé typy dvojlinek}
+    \begin{tabular}{r>{\color{BrickRed}}c>{\color{BrickRed}}c>{\color{BrickRed}}c>{\color{OliveGreen}}c>{\color{OliveGreen}}c>{\color{OliveGreen}}c>{\color{BlueViolet}}c>{\color{BlueViolet}}c>{\color{BlueViolet}}c}
+        \toprule
+        \multirow{2}{*}{} & \multicolumn{3}{>{\color{BrickRed}}c}{\textit{Reproduktorová dvojlinka}} & \multicolumn{3}{>{\color{OliveGreen}}c}{\textit{UTP kat. 6}}         & \multicolumn{3}{>{\color{BlueViolet}}c}{\textit{S-STP kat. 7}}               \\
+                        & \multicolumn{3}{>{\color{BrickRed}}c}{Dvojlinka}                & \multicolumn{3}{>{\color{OliveGreen}}c}{Kroucená dvojlinka} & \multicolumn{3}{>{\color{BlueViolet}}c}{Stíněná kroucená dvojlinka} \\
+        \cmidrule(rl){2-4}
+        \cmidrule(rl){5-7}
+        \cmidrule(rl){8-10}
+        \multicolumn{1}{c}{$f$}                 & $A$          & $NEXT$          & $ACR_\text{N}$         & $A$          & $NEXT$          & $ACR_\text{N}$       & $A$          & $NEXT$          & $ACR_\text{N}$         \\
+        \cmidrule(rl){1-1}
+        \cmidrule(rl){2-2}
+        \cmidrule(rl){3-3}
+        \cmidrule(rl){4-4}
+        \cmidrule(rl){5-5}
+        \cmidrule(rl){6-6}
+        \cmidrule(rl){7-7}
+        \cmidrule(rl){8-8}
+        \cmidrule(rl){9-9}
+        \cmidrule(rl){10-10}
+        \multicolumn{1}{c}{MHz}               & dB            & dB             & dB            & dB            & dB             & dB          & dB            & dB             & dB            \\
+        \cmidrule(rl){1-10}
+        0,01              & -0,043         & 56,68        & 56,73        & 0,220       & 59,02       & 58,80      & 0,220          & 55,62          & 55,40        \\
+        0,02              & -0,043         & 52,36        & 52,40        & 0,220       & 56,14       & 55,92      & 0,220          & 56,17          & 55,95        \\
+        0,05              & -0,043         & 45,51        & 45,56        & 0,220       & 49,63       & 49,41      & 0,265          & 56,31          & 56,04        \\
+        0,07              & -0,043         & 42,21        & 42,26        & 0,265       & 46,94       & 46,67      & 0,309          & 56,36          & 56,05        \\
+        0,1               & -0,129         & 39,33        & 39,46        & 0,309       & 43,94       & 43,64      & 0,309          & 56,68          & 56,37        \\
+        0,2               & -0,257         & 33,45        & 33,71        & 0,355       & 37,86       & 37,50      & 0,446          & 57,56          & 57,11        \\
+        0,5               & -1,176         & 23,94        & 25,12        & 0,446       & 29,37       & 28,92      & 0,630          & 59,37          & 58,74        \\
+        0,7               & -2,379         & 18,64        & 21,01        & 0,446       & 25,85       & 25,40      & 0,630          & 60,00          & 59,37        \\
+        1                 & -5,598         & 10,17        & 15,77        & 0,537       & 21,94       & 21,40      & 0,677          & 60,54          & 59,86        \\
+        5                 & -7,044         & 6,651        & 13,69        & 0,772       & 41,67       & 40,90      & 1,160          & 59,96          & 58,80        \\
+        7                 & 2,158          & 24,01        & 21,86        & 0,491       & 9,499       & 9,008      & 0,175          & 57,36          & 57,19        \\
+        10                & 0,446          & 14,89        & 14,45        & 1,061       & 33,15       & 32,09      & 2,327          & 59,37          & 57,05        \\
+        \bottomrule
+    \end{tabular}
+\end{table}
 
 \subsection{Grafy}
 
