@@ -58,6 +58,57 @@
 
 \section{Teoretický úvod}
 
+Přeslech vzniká v důsledku induktivní, kapacitní či galvanické vazby mezi signálními vodiči.
+Vazba může vzniknout také přes společnou zem jednotlivých vedení.
+Jedná se os specifickou formu rušení, kdy signál pŘenášený jedním vedením ovlivňuje průběh signálu v jiném vedení.
+Projevuje se u souběžně vedených vodičů
+
+V důsledku útlumu a rušení pak dochází ke zkreslení přenášeného signálu, které u datových přenosů v konečné podobě projevuje příjmem jiných dat, než jaké byly skutečně vyslány.
+
+Podle místa na rušeném vedení rozlišujeme přeslech signálu na blízkém a vzdáleném konci, viz obr: Vznik přeslechu na Blízkém (NEXT) a vzdáleném (FEXT) konci vedení. Jedná se o veličinu, která vyjadřuje, kolik rušivého signálu se dostává z jednoho páru do jiného páru vedení. Při měření vlastností vedení je další důležitou veličinou útlum vlivem ztrát na vedení. 
+
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[european]
+        \draw (0,0) to[R, l=$Z_g$] (2,0) node[ocirc, scale=2](gen1){} to[short] +(1,0) node[ocirc, scale=2](pripravek1){}
+        (pripravek1) to[R, l=$Z_{p/2}$] +(2,0) node[ocirc, scale=2](Z011){};
+        \draw[ultra thick, red] (Z011) to[short, l=$Z_{01}$] +(5,0) coordinate(Z012);
+        \draw[ultra thick, red] (Z011) +(0,-2) coordinate(Z013) to[short] +(5,-2) coordinate(Z014);
+        \draw (Z012) node[ocirc, scale=2](Z012){}
+        (Z013) node[ocirc, scale=2](Z013){}
+        (Z014) node[ocirc, scale=2](Z014){};
+        \draw (Z013) to[R, l_=$Z_{p/2}$] +(-2,0) node[ocirc, scale=2](pripravek2){}
+        (pripravek2) to[short] +(-1,0) node[ocirc, scale=2](gen2){}
+        (gen2) to[short] +(-2,0) to[rmeter, t=$U_g$] (0,0);
+        \draw (Z012) to[short] +(1,0) to[R, l=$Z_{out1}$] +(1,-2)
+        (Z014) to[] +(1,0);
+
+        \draw[ultra thick, blue] (Z013) +(0,-2) coordinate(Z111) to[short, l=$Z_{02}$] +(5,-2) coordinate(Z112);
+        \draw[ultra thick, blue] (Z111) +(0,-2) coordinate(Z113) to[short] +(5,-2) coordinate(Z114);
+        \draw (Z112) node[ocirc, scale=2, label={Vzdálený konec}](Z112){}
+        (Z113) node[ocirc, scale=2](Z113){}
+        (Z114) node[ocirc, scale=2](Z114){}
+        (Z111) node[ocirc, scale=2, label={Blízký konec}](Z111){};
+
+        \draw (Z111) to[] +(-1,0) to[R, l=$Z_{in2}$] +(-1,-2) to (Z113);
+        \draw (Z112) to[] +(1,0) to[R, l=$Z_{out2}$] +(1,-2) to (Z113);
+
+        \draw[-{Straight Barb[angle'=60, scale=2]}, blue] (Z111) +(0,-0.25) to[short, l=$U_{NEXT}$] +(0,-1.75);
+        \draw[-{Straight Barb[angle'=60, scale=2]}, blue] (Z011) +(0,-0.25) to[short, l=$U_{in}$] +(0,-1.75);
+        \draw[-{Straight Barb[angle'=60, scale=2]}, blue] (Z012) +(0,-0.25) to[short, l_=$U_{out}$] +(0,-1.75);
+
+        \draw (7.5,-1) node[]{Rušící vedení};
+        \draw (7.5,-5) node[]{Rušené vedení};
+
+        \draw [densely dashed] (gen1) to (gen2) to +(0,-1) to (-1,-3) to (-1,1) to (2,1) to (gen1);
+        \draw [densely dashed] (pripravek1) to (pripravek2) to (3,-7) to (12.5,-7) to (12.5,1) to (3,1) to (pripravek1);
+
+        \draw (0.5,-2.5) node[]{Generátor};
+        \draw (7.5,-6.5) node[]{Generátor};
+    \end{circuitikz}
+    \caption{Měření přeslechu na blízkém (NEXT) konci vedení.}
+\end{figure}
+
 \section{Výsledky měření}
 
 \subsection{Tabulky}
@@ -146,19 +197,19 @@
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{grafy/graf1.pdf}
+    \includegraphics[width=0.8\textwidth]{grafy/graf1.pdf}
     \caption{Útlum vlivem ztrát $A$ v závislosti na kmitočtu $f$}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{grafy/graf2.pdf}
+    \includegraphics[width=0.8\textwidth]{grafy/graf2.pdf}
     \caption{Přeslech signálu $NEXT$ v závislosti na kmitočtu $f$}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=\textwidth]{grafy/graf3.pdf}
+    \includegraphics[width=0.8\textwidth]{grafy/graf3.pdf}
     \caption{Odstup přeslechu $ACR_\text{N}$ v závislosti na kmitočtu $f$}
 \end{figure}
 
@@ -187,5 +238,13 @@
 \end{itemize}
 
 \section{Závěr}
+
+Cílem měření bylo stanovit přeslech na blízkém konci rušivého vedení a porovnat kmitočtovou závislost přeslechů měřených vedení.
+
+Z grafu prvního grafu je možné odečíst, že největších hodnot útlumu vlivem ztrát $A$ nabývá reproduktorová dvojlinka. Obě kroucené dvojlinky vykazují značně lepší hodnoty.
+
+Z grafu druhého je možné odečíst, že při měření útlumu přeslechu $NEXT$ nestíněné dvojlinky značně strádají. Neboť stínění je právě to, co přeslechu zabraňuje.
+
+Z našeho měření jasně vyplývá, že nejvhodnějším typem dvojlinky s ohledem na měřené parametry pro přenášení signálu od 0,01 do 10 MHz je stíněná dvojlinka S-STP kat. 7, avšak pokud vezmeme v úvahu, že pro úspěšný přenos dat musí být hodnota $ACR_N$ alespoň 10 dB, tak je jasné, že všechny dvojlinky tuto podmínku splňují. 
 
 \end{document}
