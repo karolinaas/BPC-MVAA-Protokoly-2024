@@ -164,7 +164,27 @@
 
 \subsection{Příklady výpočtu}
 
+\begin{enumerate}
+    \item Útlum vlivem ztrát na vedení
+    \begin{multline*}
+        A = \textcolor{teal}{20 \cdot \log \frac{\left|U_\text{in}\right|}{\left|U_\text{out}\right|}} = 20 \cdot \log \frac{\left|2\,\text{V}\right|}{\left|2,01\,\text{V}\right|} = \underline{\underline{-0,043\,\text{dB}}} \hfill
+    \end{multline*}
+    \item Přeslech signálu na blízkém konci
+    \begin{multline*}
+        NEXT = \textcolor{teal}{20 \cdot \log \frac{\left|U_\text{in}\right|}{\left|U_\text{NEXT}\right|} + 10 \cdot \log \frac{\left|Z_{01}\right|}{\left|Z_{02}\right|}} = 20 \cdot \log \frac{\left|2\,\text{V}\right|}{\left|2,93 \cdot 10^{-3}\,\text{V}\right|} = \underline{\underline{56,68\,\text{dB}}} \hfill
+    \end{multline*}
+    \item Odstup přeslechu na blízkém konci
+    \begin{multline*}
+        ACR_\text{N} = \textcolor{teal}{NEXT - A} = 56,68\,\text{dB} - (-0,043\,\text{dB}) =\underline{\underline{56,73\,\text{dB}}} \hfill
+    \end{multline*}
+\end{enumerate}
+
 \section{Seznam použitých přístrojů}
+
+\begin{itemize}
+    \item Digitální osciloskop Agilent DSO-X 2004A, v.č. MY50513107
+    \item Digitální signálový generátor Agilent 33250A, v.č. MY40028984
+\end{itemize}
 
 \section{Závěr}
 
