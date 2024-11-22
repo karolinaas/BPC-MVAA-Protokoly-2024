@@ -67,6 +67,28 @@
 
 \section{Teoretický úvod}
 
+\begin{figure}[H]
+    \begin{circuitikz}[european]
+        \tikzset{flipflop RS/.style={flipflop, flipflop def={t1=R, t3=S, t6=Q, t4={\ctikztextnot{Q}}}}}
+        \ctikzset{logic ports=european, tripoles/european not symbol=ieee circle}
+
+        \draw (0,0) node[flipflop RS, dot on notQ](RSFF){}
+        (RSFF.pin 1) node[european and port, anchor=out](ANDR){}
+        (RSFF.pin 3) node[european and port, anchor=out](ANDS){}
+        (ANDS.in 2) -- +(0,-0.75) coordinate(X) (X) -- (X -| RSFF.pin 4) -- (RSFF.pin 4)
+        (ANDR.in 1) -- +(0,0.75) coordinate(X) (X) -- node[above]{Klopný obvod} (X -| RSFF.pin 6) -- (RSFF.pin 6) node[circ](RSout){}
+        (RSout) -- +(0.5,0) node[european and port, anchor={in 1}](ANDout){}
+        (ANDout.south) node[below]{Hradlo}
+        (ANDout.in 2) -- ++(0,-2) -- ++(0.5,0) 
+        node[draw, rectangle, anchor=west, align=center, line width=0.8, minimum height=1cm, inner xsep=7.5]{Kmitočtový\\normál $f_0$}
+        (ANDout.out) +(-0.4,0) edge[-{Stealth[scale=1.5]}, thick] +(1,0) ++(1,0)
+        node[draw, rectangle, anchor=west, align=center, line width=0.8, minimum height=1cm, inner xsep=7.5](DesČ){Desítkový\\čítač}
+        (DesČ.south) edge[{Stealth[scale=1.5]}-, thick] ++(0,-1) ++(0,-1) node[anchor=north, align=center]{Nulování\\čítače}
+        (DesČ.north) edge[-{Stealth[scale=1.5]}, thick] ++(0,1) ++(0,1) node[draw, rectangle, anchor=south, align=center, line width=0.8, minimum height=1cm, inner xsep=7.5](paměť){Paměť a\\zobrazení}
+        (paměť.west) edge[{Stealth[scale=1.5]}-, thick] ++(-1,0) ++(-1,0) node[anchor=east, align=center]{Zápis do\\paměti};
+    \end{circuitikz}
+\end{figure}
+
 \section{Výsledky měření}
 
 \subsection{Tabulky}
