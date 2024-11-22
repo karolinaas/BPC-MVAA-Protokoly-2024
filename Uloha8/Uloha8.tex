@@ -71,7 +71,76 @@
 
 \subsection{Tabulky}
 
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Hodnoty naměřené čítačem HM8123}
+    \begin{tabular}{ll|ccccccc}
+        \toprule
+        \multicolumn{2}{c}{Poznámka}          & \multicolumn{7}{c}{$\delta_{f_0} = 5 \cdot 10^{-5}\,\%$;  $f_0 = 400\,\text{MHz}$}                                                                                                    \\
+        \cmidrule(rl){1-9}
+        \multicolumn{2}{c}{\multirow{3}{*}{Funkce čítače}}     & FREQ A             & PER A              & \multicolumn{5}{c}{TI A$\rightarrow$B}                                                                                  \\
+        \cmidrule(rl){3-3}
+        \cmidrule(rl){4-4}
+        \cmidrule(rl){5-9}
+        \multicolumn{2}{c}{\multirow{2}{*}{}} & \multirow{2}{*}{$f$} & \multirow{2}{*}{$T$} & \multirow{2}{*}{$T_1$} & \multirow{2}{*}{$T_2$} & \multirow{2}{*}{$T_3$} & \multirow{2}{*}{$T_4$} & \multirow{2}{*}{$T_5$} \\
+        \multicolumn{2}{c}{}                  &                    &                    &                     &                     &                     &                     &                     \\
+        \cmidrule(rl){1-9}
+        min              & [kHz], [$\mu$s]            & 3,994              & 250,4              & 12,56               & 11,08               & 15,74               & 10,36               & 37,69               \\
+        max              & [kHz], [$\mu$s]            & 3,543              & 282,2              & 20,49               & 15,03               & 23,68               & 13,31               & 53,63               \\
+        $\Delta_\text{ind}$             & [mHz], [ns]            & 0,1                & 1                  & 1                   & 1                   & 1                   & 1                   & 1                   \\
+        $u_\text{C}$               & [Hz], [ns]             & 1,154E-3           & 0,582              & 0,577               & 0,577               & 0,577               & 0,577               & 0,577               \\
+        $\tilde{U}$                & [\%]                 & 57,80E-6          & 464,8E-6           & 9,197E-3            & 10,43E-3            & 7,336E-3            & 11,14E-3            & 3,064E-3            \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Hodnoty naměřené čítačem HM8123 při průměrování intervalu $T_1$}
+    \begin{tabular}{ll|ccc}
+        \toprule
+        \multicolumn{2}{c}{\multirow{3}{*}{Funkce čítače}}     & TI A$\rightarrow$B              & \multicolumn{2}{c}{TI avg A$\rightarrow$B}   \\
+        \cmidrule(rl){3-3}
+        \cmidrule(rl){4-5}
+        \multicolumn{2}{c}{\multirow{2}{*}{}} & \multirow{2}{*}{$T_1$} & \multicolumn{2}{c}{$T_1$ Gate time} \\
+        \cmidrule(rl){4-5}
+        \multicolumn{2}{c}{}                  &                     & 25\,ms           & 1\,s            \\
+        \cmidrule(rl){1-5}
+        min                & [$\mu$s]               & 12,56               & 12,56           & 12,56          \\
+        max                & [$\mu$s]               & 20,49               & 20,49           & 20,49          \\
+        $\Delta_\text{ind}$               & [ns]               & 1                   & 0,1             & 0,01           \\
+        $n$                  & [-]                & -                   & 1991            & 79646          \\
+        $u_\text{C}$                 & [ns]               & 577,4E-3            & 3,625E-3        & 3,624E-3       \\
+        $\tilde{U}$                  & [\%]               & 9,196E-3            & 57,74E-6        & 57,74E-6       \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
 \subsection{Příklady výpočtu}
+
+\begin{enumerate}
+    \item Standardní nejistota měření kmitočtu
+    \begin{multline*}
+        u_{\text{C}_f} = \textcolor{teal}{\sqrt{\left(\frac{\delta_{f_0} \cdot f}{100\,\% \cdot \chi}\right)^2 + \left(\frac{\Delta_{f_\text{ind}}}{\chi}\right)^2}} = \sqrt{\left(\frac{5\cdot10^{-5}\,\% \cdot 3,994\cdot10^{3}\,\text{Hz}}{100\,\% \cdot \sqrt{3}}\right)^2 + \left(\frac{0,1\cdot10^{-3}\,\text{Hz}}{\sqrt{3}}\right)^2} = \hfill \\
+        \ \ \ = 1,154\cdot10^{-3}\,\text{Hz} = \underline{\underline{1,154\,\text{mHz}}} \hfill
+    \end{multline*}
+    \item Standardní nejistota měření času
+    \begin{multline*}
+        u_{\text{C}_T} = \textcolor{teal}{\sqrt{\left(\frac{\delta_{f_0} \cdot T}{100\,\% \cdot \chi}\right)^2 + \left(\frac{\Delta_{T_\text{ind}}}{n \cdot \chi}\right)^2}} = \sqrt{\left(\frac{5\cdot10^{-5}\,\% \cdot 250,4\cdot10^{-6}\,\text{s}}{100\,\% \cdot \sqrt{3}}\right)^2 + \left(\frac{1\cdot10^{-9}\,\text{s}}{1 \cdot \sqrt{3}}\right)^2} = \hfill \\
+        \ \ \ = 0,582\cdot10^{-9}\,\text{s} = \underline{\underline{0,582\,\text{ns}}} \hfill
+    \end{multline*}
+    \item Relativní rozšířená nejistota měření
+    \begin{multline*}
+        \tilde{U}_f = \textcolor{teal}{\frac{k_\text{r} \cdot u_\text{C}}{Y_\text{kor}} \cdot 100\,\%} = \frac{k_\text{r} \cdot u_{\text{C}_f}}{f} \cdot 100\,\% = \frac{2 \cdot 1,154\cdot10^{-3}\,\text{Hz}}{3,994\cdot10^{3}\,\text{Hz}} \cdot 100\,\% = \underline{\underline{57,78\cdot10^{-6}\,\%}} \hfill \\
+        \ \ \ \tilde{U}_T = \frac{k_\text{r} \cdot u_{\text{C}_T}}{T} \cdot 100\,\% = \frac{2 \cdot 0,582\cdot10^{-9}\,\text{s}}{250,4\cdot10^{-6}\,\text{s}} \cdot 100\,\% = \underline{\underline{464,8\cdot10^{-6}\,\%}} \hfill
+    \end{multline*}
+    \item Počet měřených intervalů
+    \begin{multline*}
+        n = \frac{\text{Gate Time}}{T} = \frac{25\cdot10^{-3}\,\text{s}}{12,56\cdot10^{-6}\,\text{s}} = \underline{\underline{1990}} \hfill
+    \end{multline*}
+\end{enumerate}
 
 \section{Seznam použitých přístrojů}
 
