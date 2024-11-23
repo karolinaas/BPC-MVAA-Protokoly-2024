@@ -67,6 +67,18 @@
 
 \section{Teoretický úvod}
 
+Pro měření veličin kmitočtu, délky periody nebo časového intervalu je vhodné použít elektronické zařízení univerzální čítač.
+Jeho další možné funkce jsou měření průměrné délky periody, poměr dvou kmitočtů, šířky impulzu, doby náběžné nebo sestupné hrany, činitel plnění impulzu a nebo fázový posun.
+
+Čítač pracuje na principu měření doby uplynuté mezi dvěma změnami.
+Čítač je schopen rozeznat změny v amplitudě a také je schopen rozeznat zda je změna stoupající nebo klesající.
+Taktéž dokáže porovnávat změny ve více signálech.
+
+Úroveň, ve které čítač zaznamenává změnu se odborně nazývá komparační úroveň.
+Měření reálných signálů se vyznačuje také konečně strmými hranami změn úrovní.
+Abychom předešli možné odchylce v měření, nastavujeme komparační úroveň na 50\,\%
+maximální úrovně impulsu.
+
 \begin{figure}[H]
     \centering
     \begin{circuitikz}[european]
@@ -97,9 +109,10 @@
         (pot.north) ++(0.2,0) node[right, align=center]{Nastavení\\komparační\\úrovně}
         (pot.west) -- +(0,0.4) node[left]{$+$}
         (pot.east) -- +(0,-0.4) node[left]{$-$}
+        (uzel) +(0,0.4) node[above]{Tvarovací obvod}
 
         (ANDS.in 1) -- (ANDS.in 1 -| sw-out 2.s) node[circ](uzel){} -- (sw-out 2.s)
-        (uzel) -- ++(0,-1) -- ++(-1,0) node[circ](uzel){} to[R] ++(0,-2) node[tground]{}
+        (uzel) -- ++(0,-1) -- ++(-1,0) node[circ](uzel){} to[R] ++(0,-2) node[tground]{} node[below]{Tvarovací obvod}
         (uzel) to[C] ++(-1.5,0) node[draw, rectangle, anchor=east, align=center, line width=0.8, minimum height=1cm, inner xsep=7.5](komp){Komparátor\\A}
         (komp.west) ++(0,0.25) -- ++(-1,0) node[ocirc, scale=2, label=above:{VSTUP A}]{}
         (komp.west) ++(0,-0.25) -- ++(-0.45,0) -- ++(0,-1.2) node[genericpotentiometershape, anchor=wiper, rotate=270](pot){}
@@ -187,6 +200,26 @@
 
 \section{Seznam použitých přístrojů}
 
+\begin{itemize}
+    \item Univerzální čítač Rohde \& Schwarz HM8123. v.č. 100042237463
+    \item Digitální osciloskop Rigol MSO1074, v.č. DS9ZD201400322
+    \item Školní stabilizovaný zdroj Tesla BK 125, v.č. 904417
+\end{itemize}
+
 \section{Závěr}
+
+Největší výhodoz univerzálního čítače je jeho rychlost vzorkování a schopnost nastavení náběžné
+nebo sestupné hrany.
+Oproti digitálnímu osciloskopu je jeho zřejmou nevýhodou jeho úzké zaměření oproti relativní
+všestrannosti osciloskopů, jeho výhodou je však velmi vysoká přednost, kdy naše
+výsledky vyšly s odchylkou v řádech $10^{-3}$ a nižší.
+
+Čítač je také schopen měřit signály o vyšších kmitočtech než obdobný osciloskop,
+který nedosahuje tak vysokých vzorkovacích kmitočtů.
+Osciloskop je také schopen graficky zobrazit měřený signál a tedy je možné udělat mnohem
+lepší představu o jeho průběhu.
+
+Zvýšení nastavené hodnoty Gate Time na čítači výrazně zvýšilo přesnost provedeného měření.
+Další navyšování hodnoty Gate Time už však k výraznému zvýšení přesnosti nevedlo.
 
 \end{document}
