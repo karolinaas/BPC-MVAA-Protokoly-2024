@@ -68,6 +68,7 @@
 \section{Teoretický úvod}
 
 \begin{figure}[H]
+    \centering
     \begin{circuitikz}[european]
         \tikzset{flipflop RS/.style={flipflop, flipflop def={t1=R, t3=S, t6=Q, t4={\ctikztextnot{Q}}}}}
         \ctikzset{logic ports=european, tripoles/european not symbol=ieee circle}
@@ -85,8 +86,28 @@
         node[draw, rectangle, anchor=west, align=center, line width=0.8, minimum height=1cm, inner xsep=7.5](DesČ){Desítkový\\čítač}
         (DesČ.south) edge[{Stealth[scale=1.5]}-, thick] ++(0,-1) ++(0,-1) node[anchor=north, align=center]{Nulování\\čítače}
         (DesČ.north) edge[-{Stealth[scale=1.5]}, thick] ++(0,1) ++(0,1) node[draw, rectangle, anchor=south, align=center, line width=0.8, minimum height=1cm, inner xsep=7.5](paměť){Paměť a\\zobrazení}
-        (paměť.west) edge[{Stealth[scale=1.5]}-, thick] ++(-1,0) ++(-1,0) node[anchor=east, align=center]{Zápis do\\paměti};
+        (paměť.west) edge[{Stealth[scale=1.5]}-, thick] ++(-1,0) ++(-1,0) node[anchor=east, align=center]{Zápis do\\paměti}
+        (ANDR.in 2) node[cute spdt up, xscale=-1, anchor=in](sw){} (sw.east) +(-0.4,0) node[left,align=center]{Přepínač\\funkce}
+        (sw.out 1) node[left]{2} (sw.out 2) node[left]{1}
+
+        (sw-out 1.n) -- ++(0,2.5) -- ++(-1,0) node[circ](uzel){} to[R] ++(0,-2) node[tground]{}
+        (uzel) to[C] ++(-1.5,0) node[draw, rectangle, anchor=east, align=center, line width=0.8, minimum height=1cm, inner xsep=7.5](komp){Komparátor\\B}
+        (komp.west) ++(0,0.25) -- ++(-1,0) node[ocirc, scale=2, label=above:{VSTUP B}]{}
+        (komp.west) ++(0,-0.25) -- ++(-0.45,0) -- ++(0,-1.2) node[genericpotentiometershape, anchor=wiper, rotate=270](pot){}
+        (pot.north) ++(0.2,0) node[right, align=center]{Nastavení\\komparační\\úrovně}
+        (pot.west) -- +(0,0.4) node[left]{$+$}
+        (pot.east) -- +(0,-0.4) node[left]{$-$}
+
+        (ANDS.in 1) -- (ANDS.in 1 -| sw-out 2.s) node[circ](uzel){} -- (sw-out 2.s)
+        (uzel) -- ++(0,-1) -- ++(-1,0) node[circ](uzel){} to[R] ++(0,-2) node[tground]{}
+        (uzel) to[C] ++(-1.5,0) node[draw, rectangle, anchor=east, align=center, line width=0.8, minimum height=1cm, inner xsep=7.5](komp){Komparátor\\A}
+        (komp.west) ++(0,0.25) -- ++(-1,0) node[ocirc, scale=2, label=above:{VSTUP A}]{}
+        (komp.west) ++(0,-0.25) -- ++(-0.45,0) -- ++(0,-1.2) node[genericpotentiometershape, anchor=wiper, rotate=270](pot){}
+        (pot.north) ++(0.2,0) node[right, align=center]{Nastavení\\komparační\\úrovně}
+        (pot.west) -- +(0,0.4) node[left]{$+$}
+        (pot.east) -- +(0,-0.4) node[left]{$-$};
     \end{circuitikz}
+    \caption{Blokové schéma univerzálního čítače}
 \end{figure}
 
 \section{Výsledky měření}
