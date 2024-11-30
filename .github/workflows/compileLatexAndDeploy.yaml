@@ -44,8 +44,8 @@ jobs:
             Uloha7/Uloha7A.tex
             Uloha7/Uloha7B.tex
             Uloha8/Uloha8.tex
-            Uloha9/Uloha9.tex
-            Uloha10/Uloha10.tex
+            Uloha9/Uloha9A.tex
+            Uloha9/Uloha9B.tex
           latexmk_use_xelatex: false
           latexmk_shell_escape: true
           work_in_root_file_dir: true
@@ -65,8 +65,8 @@ jobs:
           mv Uloha7/Uloha7A.pdf ./public/
           mv Uloha7/Uloha7B.pdf ./public/
           mv Uloha8/Uloha8.pdf ./public/
-          mv Uloha9/Uloha9.pdf ./public/
-          mv Uloha10/Uloha10.pdf ./public/
+          mv Uloha9/Uloha9A.pdf ./public/
+          mv Uloha9/Uloha9B.pdf ./public/
           cat > ./public/index.html <<EOL
           <!doctype html>
           <html>
@@ -86,8 +86,8 @@ jobs:
               <p><a href="./Uloha7A.pdf">Úloha č.7A: Měření statické hysterezní smyčky</a></p>
               <p><a href="./Uloha7B.pdf">Úloha č.7B: Měření přeslechů</a></p>
               <p><a href="./Uloha8.pdf">Úloha č.8: Práce s čítačem</a></p>
-              <p><a href="./Uloha9.pdf">Úloha č.9: </a></p>
-              <p><a href="./Uloha10.pdf">Úloha č.10: </a></p>
+              <p><a href="./Uloha9A.pdf">Úloha č.9A: Měření parametrů technické cívky wattmetrem</a></p>
+              <p><a href="./Uloha9B.pdf">Úloha č.9B: Měření kmitočtové závislosti impedance cívky</a></p>
             </body>
           </html>
           EOL
