@@ -7,7 +7,7 @@
 \usepackage[margin=1.5cm]{geometry}
 \usepackage{booktabs}
 \usepackage{amsmath}
-\usepackage[dvipsnames]{xcolor}
+\usepackage[dvipsnames, table]{xcolor}
 \usepackage{multirow}
 \usepackage{tabularray}
 \usepackage{bold-extra}
@@ -16,6 +16,8 @@
 \usepackage{subcaption}
 \usepackage[utf8]{inputenc}
 \usepackage{array}
+\usepackage{nicematrix}
+\usepackage{gensymb}
 
 \begin{document}
 \begin{table}[H]
@@ -65,6 +67,144 @@
 \section{Výsledky měření}
 
 \subsection{Tabulky}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Měření kmitočtové závislosti cívky metodou tří voltmetrů - \textbf{cívka bez jádra}}
+    \begin{NiceTabular}{rccc>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c}
+        \toprule
+        \multicolumn{1}{c}{$f$}      & $U_\text{R}$   & $U_\text{Z}$    & $U$    & $Z$     & $\varphi$     & $R_\text{S}$    & $L_\text{S}$    & $R_\text{P}$    & $L_\text{P}$    & $Q$     \\
+        \cmidrule(rl){1-1}
+        \cmidrule(rl){2-2}
+        \cmidrule(rl){3-3}
+        \cmidrule(rl){4-4}
+        \cmidrule(rl){5-5}
+        \cmidrule(rl){6-6}
+        \cmidrule(rl){7-7}
+        \cmidrule(rl){8-8}
+        \cmidrule(rl){9-9}
+        \cmidrule(rl){10-10}
+        \cmidrule(rl){11-11}
+        \multicolumn{1}{c}{Hz}     & mV   & mV    & mV   & $\Omega$     & $\degree$     & $\Omega$     & mH    & $\Omega$     & mH    & -     \\
+        \midrule
+        20     & 1\,000 & 13,6  & 1\,010 & 1,36  & 42,93 & 0,996 & 7,371 & 1,857 & 15,89 & 0,930 \\
+        50     & 1\,000 & 13,7  & 1\,011 & 1,37  & 36,82 & 1,097 & 2,614 & 1,711 & 7,276 & 0,749 \\
+        100    & 1\,000 & 14,6  & 1\,012 & 1,46  & 34,96 & 1,197 & 1,331 & 1,781 & 4,055 & 0,699 \\
+        200    & 1\,000 & 17,7  & 1\,014 & 1,77  & 38,03 & 1,394 & 0,868 & 2,247 & 2,286 & 0,782 \\
+        500    & 1\,000 & 31,7  & 1\,014 & 3,17  & 64,60 & 1,360 & 0,912 & 7,391 & 1,117 & 2,106 \\
+        1\,000  & 1\,000 & 59,3  & 1\,016 & 5,93  & 75,98 & 1,437 & 0,916 & 24,47 & 0,973 & 4,004 \\
+        2\,000  & 1\,000 & 117,4 & 1\,024 & 11,74 & 81,48 & 1,740 & 0,924 & 79,23 & 0,945 & 6,674 \\
+        5\,000  & 1\,000 & 295,8 & 1\,067 & 29,58 & 85,06 & 2,550 & 0,938 & 343,2 & 0,945 & 11,56 \\
+        10\,000 & 1\,000 & 592   & 1\,197 & 59,2  & 86,01 & 4,117 & 0,940 & 851,2 & 0,944 & 14,34 \\
+        15\,000 & 1\,000 & 893   & 1\,382 & 89,3  & 86,39 & 5,624 & 0,946 & 1418  & 0,949 & 15,85 \\
+        20\,000 & 1\,000 & 1\,193  & 1\,606 & 119,3 & 86,25 & 7,799 & 0,947 & 1825  & 0,951 & 15,26 \\
+        \bottomrule
+    \end{NiceTabular}
+\end{table}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Měření kmitočtové závislosti cívky pomocí osciloskopu - \textbf{cívka s jádrem}}
+    \begin{NiceTabular}{rcc>{\columncolor{gray!15}}cc>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c}
+        \toprule
+        \multicolumn{1}{c}{$f$}      & $I$   & $U_\text{Z}$ & $Z$     & $\varphi$     & $R_\text{S}$    & $L_\text{S}$    & $R_\text{P}$    & $L_\text{P}$    & $Q$     \\
+        \cmidrule(rl){1-1}
+        \cmidrule(rl){2-2}
+        \cmidrule(rl){3-3}
+        \cmidrule(rl){4-4}
+        \cmidrule(rl){5-5}
+        \cmidrule(rl){6-6}
+        \cmidrule(rl){7-7}
+        \cmidrule(rl){8-8}
+        \cmidrule(rl){9-9}
+        \cmidrule(rl){10-10}
+        \multicolumn{1}{c}{Hz}     & mA   & mV & $\Omega$     & $\degree$     & $\Omega$     & mH    & $\Omega$     & mH    & -     \\
+        \midrule
+        20     & 9,932 & 13,74 & 1,374 & 5  & 1,369 & 0,953 & 1,379 & 125,4 & 0,087 \\
+        50     & 9,889 & 13,94 & 1,394 & 12 & 1,364 & 0,923 & 1,425 & 21,35 & 0,213 \\
+        100    & 9,881 & 14,79 & 1,479 & 24 & 1,351 & 0,957 & 1,619 & 5,787 & 0,445 \\
+        200    & 9,885 & 18,02 & 1,802 & 40 & 1,380 & 0,922 & 2,352 & 2,231 & 0,839 \\
+        500    & 9,900 & 32,76 & 3,276 & 66 & 1,332 & 0,953 & 8,054 & 1,141 & 2,246 \\
+        1\,000  & 9,917 & 61,17 & 6,117 & 78 & 1,272 & 0,952 & 29,42 & 0,995 & 4,705 \\
+        2\,000  & 9,967 & 119,5 & 11,95 & 83 & 1,457 & 0,944 & 98,07 & 0,958 & 8,144 \\
+        5\,000  & 10,06 & 301,2 & 30,12 & 88 & 1,051 & 0,958 & 863,0 & 0,959 & 28,64 \\
+        10\,000 & 10,07 & 603,5 & 60,35 & 88 & 2,106 & 0,960 & 1\,729  & 0,961 & 28,64 \\
+        15\,000 & 10,03 & 898,6 & 89,86 & 88 & 3,136 & 0,953 & 2\,575  & 0,954 & 28,64 \\
+        20\,000 & 9,969 & 1191  & 119,1 & 87 & 6,232 & 0,946 & 2\,275  & 0,949 & 19,08 \\
+        \bottomrule
+    \end{NiceTabular}
+\end{table}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Měření kmitočtové závislosti cívky metodou tří voltmetrů - \textbf{cívka s jádrem}}
+    \begin{NiceTabular}{rccc>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c}
+        \toprule
+        \multicolumn{1}{c}{$f$}      & $U_\text{R}$   & $U_\text{Z}$    & $U$    & $Z$     & $\varphi$     & $R_\text{S}$    & $L_\text{S}$    & $R_\text{P}$    & $L_\text{P}$    & $Q$     \\
+        \cmidrule(rl){1-1}
+        \cmidrule(rl){2-2}
+        \cmidrule(rl){3-3}
+        \cmidrule(rl){4-4}
+        \cmidrule(rl){5-5}
+        \cmidrule(rl){6-6}
+        \cmidrule(rl){7-7}
+        \cmidrule(rl){8-8}
+        \cmidrule(rl){9-9}
+        \cmidrule(rl){10-10}
+        \cmidrule(rl){11-11}
+        \multicolumn{1}{c}{Hz}     & mV   & mV    & mV   & $\Omega$     & $\degree$     & $\Omega$     & mH    & $\Omega$     & mH    & -     \\
+        \midrule
+        20     & 1\,000 & 14,1  & 1\,012 & 1,41  & 31,88 & 1,197 & 5,927 & 1,661 & 21,24 & 0,622 \\
+        50     & 1\,000 & 16,9  & 1\,013 & 1,69  & 40,02 & 1,294 & 3,460 & 2,207 & 8,365 & 0,840 \\
+        100    & 1\,000 & 25    & 1\,014 & 2,5   & 56,54 & 1,379 & 3,319 & 4,534 & 4,770 & 1,513 \\
+        200    & 1\,000 & 44,3  & 1\,014 & 4,43  & 72,78 & 1,312 & 3,367 & 14,96 & 3,691 & 3,226 \\
+        500    & 1\,000 & 106,6 & 1\,019 & 10,66 & 82,73 & 1,350 & 3,366 & 84,18 & 3,421 & 7,833 \\
+        1\,000  & 1\,000 & 211,7 & 1\,037 & 21,17 & 85,86 & 1,528 & 3,361 & 293,4 & 3,378 & 13,82 \\
+        2\,000  & 1\,000 & 421   & 1\,106 & 42,1  & 86,87 & 2,300 & 3,345 & 770,7 & 3,355 & 18,28 \\
+        5\,000  & 1\,000 & 1064  & 1\,486 & 106,4 & 87,95 & 3,805 & 3,385 & 2\,975  & 3,389 & 27,95 \\
+        10\,000 & 1\,000 & 2139  & 2\,393 & 213,9 & 87,98 & 7,556 & 3,402 & 6\,055  & 3,406 & 28,29 \\
+        15\,000 & 1\,000 & 3222  & 3\,405 & 322,2 & 88,11 & 10,64 & 3,417 & 9\,760  & 3,421 & 30,27 \\
+        20\,000 & 1\,000 & 4240  & 4\,390 & 424   & 88,01 & 14,72 & 3,372 & 12\,209 & 3,376 & 28,78 \\
+        \bottomrule
+    \end{NiceTabular}
+\end{table}
+
+\begin{table}[H]
+    \catcode`\-=12
+    \centering
+    \caption{Měření kmitočtové závislosti cívky pomocí osciloskopu - \textbf{cívka bez jádra}}
+    \begin{NiceTabular}{rcc>{\columncolor{gray!15}}cc>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c>{\columncolor{gray!15}}c}
+        \toprule
+        \multicolumn{1}{c}{$f$}      & $I$   & $U_\text{Z}$ & $Z$     & $\varphi$     & $R_\text{S}$    & $L_\text{S}$    & $R_\text{P}$    & $L_\text{P}$    & $Q$     \\
+        \cmidrule(rl){1-1}
+        \cmidrule(rl){2-2}
+        \cmidrule(rl){3-3}
+        \cmidrule(rl){4-4}
+        \cmidrule(rl){5-5}
+        \cmidrule(rl){6-6}
+        \cmidrule(rl){7-7}
+        \cmidrule(rl){8-8}
+        \cmidrule(rl){9-9}
+        \cmidrule(rl){10-10}
+        \multicolumn{1}{c}{Hz}     & mA   & mV & $\Omega$     & $\degree$     & $\Omega$     & mH    & $\Omega$     & mH    & -     \\
+        \midrule
+        20     & 9,938 & 14,29 & 1,429  & 16,7 & 1,368 & 3,267 & 1,491  & 39,56 & 0,300 \\
+        50     & 9,879 & 17,18 & 1,718  & 38   & 1,354 & 3,367 & 2,180  & 8,883 & 0,781 \\
+        100    & 9,882 & 25,07 & 2,507  & 58   & 1,328 & 3,383 & 4,731  & 4,705 & 1,600 \\
+        200    & 9,885 & 44,53 & 4,453  & 73   & 1,302 & 3,389 & 15,23 & 3,705 & 3,271 \\
+        500    & 9,893 & 106,0 & 10,59 & 83   & 1,291 & 3,347 & 86,94  & 3,398 & 8,144 \\
+        1\,000  & 9,911 & 210,7 & 21,06 & 86   & 1,470 & 3,345 & 302,0 & 3,361 & 14,30 \\
+        2\,000  & 9,958 & 424,8 & 42,48  & 89   & 0,741 & 3,380 & 2\,434 & 3,381 & 57,29 \\
+        5\,000  & 10,06 & 1\,072  & 107,2 & 89   & 1,871 & 3,412 & 6\,143   & 3,413 & 57,29 \\
+        10\,000 & 10,07 & 2\,163  & 216,2 & 89   & 3,775 & 3,442 & 12\,393  & 3,443 & 57,29 \\
+        15\,000 & 10,02 & 3\,213  & 321,2 & 89   & 5,607 & 3,408 & 18\,409  & 3,409 & 57,29 \\
+        20\,000 & 9,972 & 4\,284  & 428,4 & 89   & 7,477 & 3,409 & 24\,548  & 3,410 & 57,29 \\
+        \bottomrule
+    \end{NiceTabular}
+\end{table}
 
 \subsection{Grafy}
 
