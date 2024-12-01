@@ -129,6 +129,63 @@
 
 \subsection{Příklady výpočtu}
 
+\begin{enumerate}
+    \item Absolutní odchylka metody měření činného výkonu
+    \begin{multline*}
+        \Delta_P = \textcolor{teal}{U^2 \cdot \frac{R_\text{V} + R_\text{WU}}{R_\text{V} \cdot R_\text{WU}}}
+        = \left(41\,V \right)^2 \cdot \frac{6\,000\,\Omega + 15\,000\,\Omega}{6\,000\,\Omega \cdot 15\,000\,\Omega} =
+        \underline{\underline{0,392\,\text{W}}} \hfill
+    \end{multline*}
+    \item Korekce naměřeného činného výkonu
+    \begin{multline*}
+        P = \textcolor{teal}{P' - \Delta_P} = 14,4\,\text{W} - 0,392\,\text{W} = \underline{\underline{14,01\,\text{W}}} \hfill
+    \end{multline*}
+    \item Absolutní odchylka metody měření proudu
+    \begin{multline*}
+        \Delta_I = \textcolor{teal}{U \cdot \frac{R_\text{V} + R_\text{WU}}{R_\text{V} \cdot R_\text{WU}}}
+        = 41\,V \cdot \frac{6\,000\,\Omega + 15\,000\,\Omega}{6\,000\,\Omega \cdot 15\,000\,\Omega} =
+        \underline{\underline{0,010\,\text{A}}} \hfill
+    \end{multline*}
+    \item Korekce naměřeného proudu
+    \begin{multline*}
+        I = \textcolor{teal}{I_1 - \Delta_I} = 0,9\,\text{A} - 0,01\,\text{A} = \underline{\underline{0,89\,\text{A}}} \hfill
+    \end{multline*}
+    \item Parametry sériového náhradního obvodu
+    \begin{multline*}
+        R_\text{S} = \textcolor{teal}{\frac{P}{I^2}} = \frac{14,01\,\text{W}}{\left(0,89\,\text{A}\right)^2}
+        = \underline{\underline{17,67\,\Omega}} \hfill \\
+        \ \ \ L_\text{S} = \textcolor{teal}{\frac{1}{2 \pi f} \cdot \frac{\sqrt{U^2 \cdot I^2 - P^2}}{I^2}}
+        = \frac{1}{2 \pi \cdot 50\,\text{Hz}} \cdot \frac{\sqrt{(41\,\text{V})^2 \cdot (0,89\,\text{A})^2 - (14,01\,\text{W})^2}}{(0,89\,\text{A})^2} = 
+        \underline{\underline{0,135\,\text{H}}} \hfill
+    \end{multline*}
+    \item Parametry paralelního náhradního obvodu
+    \begin{multline*}
+        R_\text{S} = \textcolor{teal}{\frac{U^2}{P}} = \frac{(41\,\text{V})^2}{14,01\,\text{W}}
+        = \underline{\underline{120\,\Omega}} \hfill \\
+        \ \ \ L_\text{S} = \textcolor{teal}{\frac{1}{2 \pi f} \cdot \frac{U^2}{\sqrt{U^2 \cdot I^2 - P^2}}}
+        = \frac{1}{2 \pi \cdot 50\,\text{Hz}} \cdot \frac{(41\,\text{V})^2}{\sqrt{(41\,\text{V})^2 \cdot (0,89\,\text{A})^2 - (14,01\,\text{W})^2}} = 
+        \underline{\underline{0,159\,\text{H}}} \hfill
+    \end{multline*}
+    \item Nejistoty měření
+    \begin{multline*}
+        u_{BU} = \textcolor{teal}{\frac{\delta_{TP_V} \cdot X_R}{100 \% \cdot \chi}} = \frac{\delta_{TP_V} \cdot U_R}{100 \% \cdot \sqrt{3}} = \frac{0,5\% \cdot 60V}{100 \% \cdot \sqrt{3}} = \underline{\underline{0,1732\,\text{V}}} \hfill \\
+        \ \ \ u_{BI} = \frac{\delta_{TP_A} \cdot I_R}{100 \% \cdot \sqrt{3}} = 346,4 \cdot 10^{-6} A = \underline{\underline{0,01732\,\text{A}}} \hfill \\
+        \ \ \ u_{\text{B}P} = \textcolor{teal}{\sqrt{\left(p_\text{MTP}\,X_\text{RWU}\,X_\text{RWI}\,cos\,\varphi\,\frac{\delta_\text{TPW}}{100 \cdot \sqrt{3}}\right)^2 + \left(P \cdot \frac{\delta_\text{TP\,MTP}}{100 \cdot \sqrt{3}}\right)^2}} = \hfill \\
+        \ \ \ = \sqrt{\left(0,2 \cdot 150 \cdot 5 \cdot 0,2 \cdot \frac{1}{100 \cdot \sqrt{3}}\right)^2 + \left(14,01 \cdot \frac{0,2}{100 \cdot \sqrt{3}}\right)^2} = \underline{\underline{0,1732\,\text{W}}} \hfill \\
+        \ \ \ u_{R_\text{S}} = \textcolor{teal}{\sqrt{\left(\frac{1}{I^2} u_{\text{B}P}\right)^2 + \left(\frac{2P}{I^3}u_{\text{B}I}\right)^2}} = \sqrt{\left(\frac{1}{0,8916^2} 0,1732\right)^2 + \left(\frac{2 \cdot 14,01}{0,8916^3}0,01732\right)^2} = \underline{\underline{0,7764\,\Omega}} \hfill \\
+        \ \ \ u_{L_S} = \textcolor{teal}{\cfrac{\sqrt{\left(\cfrac{P \cdot u_{BP}}{I^2}\right)^2 + \left(U \cdot u_{BU}\right)^2 + \left(\cfrac{\left(U^2I^2 - 2 P^2\right) \cdot u_{BI}}{I^3}\right)^2}}{2 \pi f \sqrt{U^2I^2-P^2}}} =  \hfill \\
+        \ \ \ = \cfrac{\sqrt{\left(\cfrac{15,2472 \cdot 0,1732}{0,8916^2}\right)^2 + \left(41 \cdot 0,1732\right)^2 + \left(\cfrac{\left(41^2 \cdot 0,8916^2 - 2 \cdot 15,2472^2\right) \cdot 0,01732}{0,8916^3}\right)^2}}{2 \pi \cdot 50 \cdot \sqrt{41^2 \cdot 0,8916^2 - 15,2472^2}} = \underline{\underline{0,002258\,H}} \hfill \\
+        \ \ \ u_{R_P} = \textcolor{teal}{\sqrt{\left(\frac{U^2}{P^2}u_{BP}\right)^2 + \left(\frac{2U}{P}u_{BU}\right)^2}} = \sqrt{\left(\frac{42^2}{15,2472^2}0,1732\right)^2 + \left(\frac{2 \cdot 42}{15,2472}0,1732\right)^2} = \underline{\underline{1,1641\,\Omega}} \hfill \\
+        \ \ \ u_{L_P} = \textcolor{teal}{\cfrac{\sqrt{(U^2 \cdot P \cdot u_{BP})^2 + (U \cdot (U^2I^2 - 2P^2) \cdot u_{BU})^2 + (U^4\cdot I \cdot u_{BI})^2}}{2 \pi f \sqrt{U^2I^2-P^2}}} = \hfill \\
+        \ \ \ = \cfrac{\sqrt{(42^2 \cdot 15,2472 \cdot 0,1732)^2 + (42 \cdot (42^2 \cdot 0,8916^2 - 2 \cdot 15,2472^2) \cdot 0,1732)^2 + (42^4\cdot 0,8916 \cdot 0,01732)^2}}{2 \pi 50 \cdot \sqrt{42^2 \cdot 0,8916^2-15,2472^2}} = \hfill \\
+        \ \ \ = \underline{\underline{0,00879\,\text{H}}} \hfill \\
+        \ \ \ \tilde{U}_{R_S} = \textcolor{teal}{\frac{k_r \cdot u_{R_S}}{R_S} \cdot 100\,\%} = \frac{2 \cdot 0,7764}{17,67} \cdot 100\,\% = \underline{\underline{8,1\,\%}} \hfill \\
+        \ \ \ \tilde{U}_{L_S} = \textcolor{teal}{\frac{k_r \cdot u_{L_S}}{L_S} \cdot 100\,\%} = \frac{2 \cdot 0,00258}{0,135} \cdot 100\,\% = \underline{\underline{3,3\,\%}} \hfill \\
+        \ \ \ \tilde{U}_{R_P} = \textcolor{teal}{\frac{k_r \cdot u_{R_P}}{R_P} \cdot 100\,\%} = \frac{2 \cdot 1,624}{120} \cdot 100\,\% = \underline{\underline{2,81\,\%}} \hfill \\
+        \ \ \ \tilde{U}_{L_P} = \textcolor{teal}{\frac{k_r \cdot u_{L_P}}{L_P} \cdot 100\,\%} = \frac{2 \cdot 0,003879}{0,159} \cdot 100\,\% = \underline{\underline{4,73\,\%}} \hfill \\
+    \end{multline*}
+\end{enumerate}
+
 \section{Seznam použitých přístrojů}
 
 \section{Závěr}
