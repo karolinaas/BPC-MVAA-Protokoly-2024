@@ -57,6 +57,26 @@
 
 \section{Teoretický úvod}
 
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[straight voltages]
+        \draw (0,0) to[rmeter=, t=A$_1$, v=$I'$] ++(2,0) node[transformer core, anchor=A2, rotate=270, transform shape](trafo){};
+        \draw (trafo.A1) node[ocirc, scale=1.5](L){} node[above]{L}
+        (trafo.A2) node[ocirc, scale=1.5](K){} node[above]{K}
+        (trafo.B1) node[ocirc, scale=1.5](l){} node[below]{l}
+        (trafo.B2) node[ocirc, scale=1.5](k){} node[below]{k};
+        \draw (l) to ++(1.5,0) to ++(0,-1.5) to[rmeter, t=W, name=wattmeter] ++(-1.5,0) to ++(-1,0) to[rmeter, t=A$_2$] ++(-1.5,0)
+        coordinate(X) to (X |- k) to (k);
+        \draw (wattmeter) to (wattmeter |- L) node[circ]{};
+        \draw (L) to ++(3,0) node[circ](uzel){} to[rmeter, t=V] ++(0,-5) node[circ]{}
+        (uzel) to ++(2,0) to[cute choke, label=Z$_\text{Lx}$, f>_=$I$] ++(0,-5)
+        to (0,-5) to[rmeter, t=$\sim$, name=zdroj] (0,0)
+        (zdroj) +(-0.5,0) node[align=center, left]{Zdroj\\0-48\,V\\50\,Hz};
+        \draw (wattmeter) to ++(0,-1.4) node[circ]{};
+    \end{circuitikz}
+    \caption{Měření impedance cívky pomocí wattmetru}
+\end{figure}
+
 \section{Výsledky měření}
 
 \subsection{Tabulky}
@@ -182,7 +202,7 @@
         \ \ \ \tilde{U}_{R_S} = \textcolor{teal}{\frac{k_r \cdot u_{R_S}}{R_S} \cdot 100\,\%} = \frac{2 \cdot 0,7764}{17,67} \cdot 100\,\% = \underline{\underline{8,1\,\%}} \hfill \\
         \ \ \ \tilde{U}_{L_S} = \textcolor{teal}{\frac{k_r \cdot u_{L_S}}{L_S} \cdot 100\,\%} = \frac{2 \cdot 0,00258}{0,135} \cdot 100\,\% = \underline{\underline{3,3\,\%}} \hfill \\
         \ \ \ \tilde{U}_{R_P} = \textcolor{teal}{\frac{k_r \cdot u_{R_P}}{R_P} \cdot 100\,\%} = \frac{2 \cdot 1,624}{120} \cdot 100\,\% = \underline{\underline{2,81\,\%}} \hfill \\
-        \ \ \ \tilde{U}_{L_P} = \textcolor{teal}{\frac{k_r \cdot u_{L_P}}{L_P} \cdot 100\,\%} = \frac{2 \cdot 0,003879}{0,159} \cdot 100\,\% = \underline{\underline{4,73\,\%}} \hfill \\
+        \ \ \ \tilde{U}_{L_P} = \textcolor{teal}{\frac{k_r \cdot u_{L_P}}{L_P} \cdot 100\,\%} = \frac{2 \cdot 0,003879}{0,159} \cdot 100\,\% = \underline{\underline{4,73\,\%}} \hfill
     \end{multline*}
 \end{enumerate}
 

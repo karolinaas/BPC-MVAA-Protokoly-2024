@@ -234,6 +234,30 @@
 
 \subsection{Příklady výpočtu}
 
+\begin{enumerate}
+    \item Modul impedance
+    \begin{multline*}
+        Z = \textcolor{teal}{\frac{R \cdot U_Z}{U_R}} = \frac{100\,\Omega \cdot 13,6 \cdot 10^{-3}\,\text{V}}{1000 \cdot 10^{-3}\,\text{V}} = \underline{\underline{1,36\,\Omega}} \hfill
+    \end{multline*}
+    \item Fáze impedance
+    \begin{multline*}
+        \varphi = \textcolor{teal}{arcsin \left(\cfrac{\sqrt{4 U^2_R U^2_Z - \left(U^2 - U^2_R - U^2_Z\right)^2}}{2 U_R U_Z}\right)} = \hfill \\
+        \ \ \ = arcsin \left(\cfrac{\sqrt{4 \cdot 1^2 \cdot (13,6 \cdot 10^{-3})^2 - \left((1010 \cdot 10^{-3})^2 - 1^2 - (13,6 \cdot 10^{-3})^2\right)^2}}{2 \cdot 1^2 \cdot 13,6 \cdot 10^{-3}}\right) =
+        \underline{\underline{42,93\,\degree}} \hfill
+    \end{multline*}
+    \item Parametry náhradního obvodu měřené cívky
+    \begin{multline*}
+        R_\text{S} = \textcolor{teal}{Z \cdot cos\,\varphi} = 1,36\,\Omega \cdot cos (42,93\,\degree) = \underline{\underline{0,996\,\Omega}} \hfill \\
+        \ \ \ L_\text{S} = \textcolor{teal}{\frac{Z \cdot sin\,\varphi}{2 \pi f}} = \frac{1,36\,\Omega \cdot sin(42,93\,\degree)}{2 \pi \cdot 20\,\text{Hz}} = \underline{\underline{7,371\,\text{mH}}} \hfill \\
+        \ \ \ R_\text{P} = \textcolor{teal}{\frac{Z}{cos\,\varphi}} = \frac{1,36\,\Omega}{cos (42,93\,\degree)} = \underline{\underline{1,857\,\Omega}} \hfill \\
+        \ \ \ L_\text{P} = \textcolor{teal}{\frac{1}{2 \pi f} \cdot \frac{Z}{sin\,\varphi}} = \frac{1}{2 \pi \cdot 20\,\text{Hz}} \cdot \frac{1,36\,\Omega}{sin(42,93\,\degree)} = \underline{\underline{15,89\,\text{mH}}} \hfill
+    \end{multline*}
+    \item Činitel jakosti
+    \begin{multline*}
+        Q = \textcolor{teal}{\frac{sin\,\varphi}{cos\,\varphi}} = \frac{sin(42,93\,\degree)}{cos(42,93\,\degree)} = \underline{\underline{0,93}} \hfill
+    \end{multline*}
+\end{enumerate}
+
 \section{Seznam použitých přístrojů}
 
 \section{Závěr}
