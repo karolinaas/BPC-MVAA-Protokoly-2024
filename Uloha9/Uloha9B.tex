@@ -64,6 +64,34 @@
 
 \section{Teoretický úvod}
 
+\begin{figure}[H]
+    \centering
+    \begin{circuitikz}[european, straight voltages]
+        \draw (0,0) node[draw, rectangle, align=center, line width=0.8, minimum height=1cm, inner xsep=7.5](trafo){Oddělovací\\transformátor}
+        (trafo.east) ++(0,0.25) to ++(0.5,0)
+        (trafo.east) ++(0,-0.25) to ++(0.5,0)
+        (trafo.east) ++(0.5,0) node[draw, rectangle, anchor=west, align=center, line width=0.8, minimum height=1cm, inner xsep=7.5](generátor){Generátor}
+        (generátor.east) ++(0,0.25) to ++(0.5,0) to ++(0,1.25) to ++(1,0) node[circ](uzel1){}
+        to[rmeter, t=V, v=$U$] ++(0,-3) node[circ]{}
+        (uzel1) to ++(1.5,0) node[circ, label=Kanál 1](uzel2){} to[rmeter, t=osc, name=osc] ++(0,-3) node[circ, label=below:Kanál 2]{}
+        (uzel2) to ++(1.5,0) node[circ](uzel3){} to[rmeter, t=V$_Z$] ++(0,-1.5) node[circ](uzel4){}
+        to[rmeter, t=V$_R$] ++(0,-1.5) node[circ]{}
+        (uzel4) to (osc.north)
+        (uzel3) to ++(1.5,0) node[ocirc, scale=1.5](svorka1){}
+        (uzel4) to ++(1.5,0) node[ocirc, scale=1.5](svorka2){} to ++(1.5,0) node[circ](uzel5){}
+        (svorka1) to ++(1.5,0) to[cute choke, label=L$_\text{X}$, v=$U_Z$] (uzel5)
+        (uzel5) to[R, label=R, v<=$U_R$] ++(0,-1.5) to ++(-1.5,0) node[ocirc, scale=1.5](svorka3){} to ++(-5.5,0)
+        to ++(0,1.25) to ++(-0.5,0)
+        (uzel5) to ++(0.75,0) node[rground]{};
+        \draw[dashed, line width=1.2] (svorka1) -- (svorka2) -- (svorka3) -- ++(0,-0.2)
+        to node[below]{Měřený přípravek} ++(3,0) -- ++(0,3.4) -- ++(-3,0) -- (svorka1);
+        \draw (svorka1) node[above left]{1}
+        (svorka2) node[above left]{2}
+        (svorka3) node[above left]{3};
+    \end{circuitikz}
+    \caption{Zapojení pro měření kmitočtové závislosti cívky}
+\end{figure}
+
 \section{Výsledky měření}
 
 \subsection{Tabulky}
